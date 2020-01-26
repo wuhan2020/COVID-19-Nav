@@ -5,13 +5,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="author" content="viggo"/>
+    <meta name="author" content="werty.cn"/>
     <title>2019-nCoV疫情信息导航</title>
     <meta name="keywords"
           content="2019-nCov,疫情信息,疫情导航,疫情信息导航,疫情数据,nCoV导航,2019nCoV,疫情网站导航,武汉疫情导航,武汉疫情,新冠状病毒导航,疫情网址大全,疫情捐助,nCov.ink">
     <meta name="description" content="2019-nCov 疫情信息导航 www.ncov.ink">
     <link rel="shortcut icon" href="./assets/images/favicon.png">
-<!--    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arimo:400,700,400italic">-->
+    <!--    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arimo:400,700,400italic">-->
     <link rel="stylesheet" href="./assets/css/fonts/linecons/css/linecons.css">
     <link rel="stylesheet" href="./assets/css/fonts/fontawesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="./assets/css/bootstrap.css">
@@ -30,30 +30,57 @@
     <meta property="og:url" content="http://www.nocv.ink/">
     <meta property="og:title" content="nCovNav - 收集实时疫情数据、防疫知识网站、求助及援助信息等 www.ncov.ink">
     <meta property="og:description" content="2019-nCov 疫情信息导航 www.ncov.ink">
-    <meta property="og:image" content="http://webstack.cc/assets/images/webstack_banner_cn.png">
+    <!--    <meta property="og:image" content="http://webstack.cc/assets/images/webstack_banner_cn.png">-->
+    <style>
+        .focus-data {
+            color: #008d7d;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body class="page-body">
+<div style="text-align: center;margin-top: 30px">
+    <h2>2019-nCoV 疫情信息导航</h2>
+    <h3>武汉加油！中国加油！</h3>
+</div>
+<div id="ncov-data" style="text-align: center;margin: 15px 15px 5px">
+    <p style="font-size: 18px;color: black">
+        截至 <span class="focus-data" id="update_time"></span> <br>
+        确诊 <span class="focus-data" id="confirmed"></span> 例
+        疑似 <span class="focus-data" id="suspect"></span> 例 <br>
+        死亡 <span class="focus-data" id="death"></span> 例
+        治愈 <span class="focus-data" id="cured"></span> 例
+    </p>
+</div>
 <!-- skin-white -->
 <div class="page-container">
-    <div class="main-content">
-        <span id="main-content">
 
-        </span>
+    <div class="main-content">
+        <span id="main-content"></span>
         <!-- Main Footer -->
         <!-- Choose between footer styles: "footer-type-1" or "footer-type-2" -->
         <!-- Add class "sticky" to  always stick the footer to the end of page (if page contents is small) -->
         <!-- Or class "fixed" to  always fix the footer to the end of page -->
-        <footer class="main-footer sticky footer-type-2 fixed">
+        <footer class="main-footer sticky footer-type-1 fixed">
             <div class="footer-inner">
                 <!-- Add your copyright text here -->
                 <div class="footer-text">
-                    &copy; 2017-2019
+
+                    免责申明：本站所列信息均来自互联网，仅供参考，本站力求但不保证信息的完全准确，如有错漏请以官方媒体披露为准，用户个人对服务的使用承担风险，本站不作任何类型担保！
+                    <br>
+                    &copy; 2019-2020
                     <a href=".html"><strong>疫情信息导航</strong></a> design by <a href="http://ncov.werty.cn"
-                                                                               target="_blank"><strong>ncov.werty.cn</strong></a>
+                                                                             target="_blank"><strong>ncov.werty.cn</strong></a>
                     <!--  - Purchase for only <strong>23$</strong> --> <br>
-                    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
-                    访客数<span id="busuanzi_value_site_uv"></span>人次
+                    <span id="busuanzi_container_site_pv">访问次数：<span id="busuanzi_value_site_pv"></span>  访客人数：<span
+                            id="busuanzi_value_site_uv"></span></span>
+                    <br>
+
+
+                </div>
+                <div class="footer-text">
                 </div>
                 <!-- Go to Top Link, just add rel="go-top" to any link to add this functionality -->
                 <div class="go-up">
@@ -67,9 +94,19 @@
 
 </div>
 <!-- 锚点平滑移动 -->
+<script src="./assets/js/bootstrap.min.js"></script>
+<!--<script src="./assets/js/TweenMax.min.js"></script>-->
+<script src="./assets/js/resizeable.js"></script>
+<!--<script src="./assets/js/joinable.js"></script>-->
+<!--<script src="./assets/js/xenon-api.js"></script>-->
+<!--<script src="./assets/js/xenon-toggles.js"></script>-->
+<!-- JavaScripts initializations and stuff -->
+<script src="./assets/js/xenon-custom.js"></script>
+<script src="./assets/js/lozad.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script type="text/javascript">
 
-
+    $("#ncov-data").hide();
     var href = "";
     var pos = 0;
 
@@ -113,6 +150,33 @@
         }
     );
 
+    $.get(
+        // http://lab.isaaclin.cn/nCoV/api/overall
+        'https://jlfyn6zwq2.execute-api.cn-northwest-1.amazonaws.com.cn/V1',
+        function (res) {
+            if (res.success == true) {
+                $("#confirmed").text(res.results[0].confirmed)
+                $("#update_time").text(formatDate(res.results[0].updateTime))
+                $("#suspect").text(res.results[0].suspect)
+                $("#death").text(res.results[0].death)
+                $("#cured").text(res.results[0].cured)
+                $("#ncov-data").show();
+
+            }
+        }
+    );
+
+    function formatDate(date) {
+        var date = new Date(date);
+        var YY = date.getFullYear() + '-';
+        var MM = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+        var DD = (date.getDate() < 10 ? '0' + (date.getDate()) : date.getDate());
+        var hh = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
+        var mm = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
+        var ss = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds());
+        return YY + MM + DD + " " + hh + mm + ss;
+    }
+
     function init() {
         const observer = lozad();
         observer.observe();
@@ -153,16 +217,7 @@
 
 </script>
 <!-- Bottom Scripts -->
-<script src="./assets/js/bootstrap.min.js"></script>
-<!--<script src="./assets/js/TweenMax.min.js"></script>-->
-<script src="./assets/js/resizeable.js"></script>
-<!--<script src="./assets/js/joinable.js"></script>-->
-<!--<script src="./assets/js/xenon-api.js"></script>-->
-<!--<script src="./assets/js/xenon-toggles.js"></script>-->
-<!-- JavaScripts initializations and stuff -->
-<script src="./assets/js/xenon-custom.js"></script>
-<script src="./assets/js/lozad.js"></script>
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 
 </body>
 
