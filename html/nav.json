@@ -1,27 +1,26 @@
 {
   "code": 1,
   "data": [
-
     {
       "title": "防疫指南",
       "item": [
         {
           "title": "防疫知识",
-          "desc": "丁香医生提供，需使用微信扫描小程序二维码",
-          "image": "http://image.werty.cn/source_blog/20200126013715.png",
-          "url": "https://img1.dxycdn.com/2020/0125/993/3392865907226580601-22.jpg"
+          "desc": "中国疾控中心出品防疫知识，涵盖公众防护、个人防护、家庭防护、旅游防护、公共交通防护、居家观察等多个方面",
+          "image": "http://image.werty.cn/source_blog/20200126174559.png",
+          "url": "http://www.chinacdc.cn/jkzt/crb/zl/szkb_11803/jszl_2275/"
         },
         {
-          "title": "口罩攻略",
-          "desc": "丁香医生提供，需使用微信扫描小程序二维码",
-          "image": "http://image.werty.cn/source_blog/20200126013715.png",
-          "url": "https://img1.dxycdn.com/2020/0125/993/3392865907226580601-22.jpg"
-       },
+          "title": "诊疗方案第三版（试行）",
+          "desc": "中国疾控中心关于印发新型冠状病毒感染的肺炎诊疗方案（试行第三版）的通知",
+          "image": "http://image.werty.cn/source_blog/20200126174559.png",
+          "url": "http://www.chinacdc.cn/jkzt/crb/zl/szkb_11803/jszl_11815/202001/W020200123581113562555.pdf"
+        },
         {
-          "title": "口罩攻略",
-          "desc": "丁香医生提供，需使用微信扫描小程序二维码",
+          "title": "丁香医生防护知识",
+          "desc": "丁香医生防护知识合辑",
           "image": "http://image.werty.cn/source_blog/20200126013715.png",
-          "url": "https://img1.dxycdn.com/2020/0125/993/3392865907226580601-22.jpg"
+          "url": "https://mp.weixin.qq.com/s/UkWbqzKRe2DITz2nS6-XvQ"
         }
       ]
     },
@@ -90,7 +89,7 @@
           "title": "国务院互联网+督察平台",
           "desc": "征集新型冠状病毒感染的肺炎疫情防控工作问题线索及意见建议",
           "image": "http://image.werty.cn/source_blog/20200126124511.png",
-          "url": "https://pro.m.jd.com/mall/active/3cnq9TA9hHBnxdBKDKNLVQu47PnN/index.html"
+          "url": "http://www.gov.cn/xinwen/2020-01/24/content_5472009.htm"
         },
         {
           "title": "湖北市监局投诉方式",
