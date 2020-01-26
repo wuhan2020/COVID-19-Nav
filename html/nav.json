@@ -50,7 +50,7 @@
           "title": "今日头条肺炎实时追踪",
           "desc": "今日头条APP新冠状病毒肺炎实时追踪",
           "image": "http://image.werty.cn/source_blog/20200126022709.jfif",
-          "url": "https://i.snssdk.com/feoffline/hot_list/template/hot_list/forum_share.html"
+          "url": "https://i.snssdk.com/feoffline/hot_list/template/hot_list/forum_share.html?forum_id=1656388947394568"
         },
         {
           "title": "梅斯",
@@ -83,30 +83,52 @@
       "item": [
         {
           "title": "阿里义诊",
-          "desc": "",
-          "image": "",
+          "desc": "足不出户看病，阿里健康医生义诊  需在手机浏览器中打开或支付宝搜索“问专家”",
+          "image": "http://image.werty.cn/source_blog/20200126112649.png",
           "url": "https://pages.tmall.com/wow/alijk/act/liugan?wh_biz=tm&spm=a2oua.alipayad.banner.feiyan"
         },
         {
           "title": "好大夫在线",
-          "desc": "",
-          "image": "",
+          "desc": "抗击疫情，线上义诊 全国专业医生7x24在线免费答疑",
+          "image": "http://image.werty.cn/source_blog/20200126112738.jfif",
           "url": "https://m.haodf.com/"
         },
         {
           "title": "微医互联网总医院",
-          "desc": "",
-          "image": "",
+          "desc": "抗击疫情，实时救助。紧急动员，集结全国权威三甲专家",
+          "image": "http://image.werty.cn/source_blog/20200126113131.jfif",
           "url": "https://promo.guahao.com/topic/pneumonia"
         },
         {
           "title": "湖北免费义诊",
-          "desc": "丁香医生提供，需扫描小程序二维码",
-          "image": "",
+          "desc": "丁香医生提供，需使用扫描小程序二维码",
+          "image": "http://image.werty.cn/source_blog/20200126013715.png",
           "url": "https://img1.dxycdn.com/2020/0125/993/3392865907226580601-22.jpg"
         }
       ]
-
+    },
+    {
+      "title": "谣言鉴定",
+      "item": [
+        {
+          "title": "腾讯新闻较真平台",
+          "desc": "新型冠状病毒肺炎最新辟谣科普实时更新中",
+          "image": "http://image.werty.cn/source_blog/20200126101437.png",
+          "url": "https://vp.fact.qq.com/home"
+        },
+        {
+          "title": "百度谣言鉴定",
+          "desc": "关于新型肺炎的这些谣言不能信",
+          "image": "http://image.werty.cn/source_blog/20200126020755.jfif",
+          "url": "https://dwz.cn/lM8JJeZu?u=6a6bf6dc8edecfd7"
+        },
+        {
+          "title": "新浪辟谣信息播报",
+          "desc": "武汉新型肺炎辟谣信息播报",
+          "image": "http://image.werty.cn/source_blog/20200126023140.jfif",
+          "url": "https://news.sina.cn/zt_d/yypd2020"
+        }
+      ]
     }
   ]
 }

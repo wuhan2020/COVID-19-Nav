@@ -37,21 +37,23 @@
 <!-- skin-white -->
 <div class="page-container">
     <div class="main-content">
-        <div id="main-content">
+        <span id="main-content">
 
-        </div>
+        </span>
         <!-- Main Footer -->
         <!-- Choose between footer styles: "footer-type-1" or "footer-type-2" -->
         <!-- Add class "sticky" to  always stick the footer to the end of page (if page contents is small) -->
         <!-- Or class "fixed" to  always fix the footer to the end of page -->
-        <footer class="main-footer sticky footer-type-1">
+        <footer class="main-footer sticky footer-type-2 fixed">
             <div class="footer-inner">
                 <!-- Add your copyright text here -->
                 <div class="footer-text">
                     &copy; 2017-2019
                     <a href=".html"><strong>疫情信息导航</strong></a> design by <a href="http://ncov.werty.cn"
                                                                                target="_blank"><strong>ncov.werty.cn</strong></a>
-                    <!--  - Purchase for only <strong>23$</strong> -->
+                    <!--  - Purchase for only <strong>23$</strong> --> <br>
+                    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+                    访客数<span id="busuanzi_value_site_uv"></span>人次
                 </div>
                 <!-- Go to Top Link, just add rel="go-top" to any link to add this functionality -->
                 <div class="go-up">
@@ -137,6 +139,16 @@
                 });
             }
         });
+
+        $("a.smooth").click(function (e) {
+            $("#main-menu li").each(function () {
+                $(this).removeClass("active");
+            });
+            $(this).parent("li").addClass("active");
+            e.preventDefault();
+            href = $(this).attr("href");
+            pos = $(href).position().top - 30;
+        });
     }
 
 </script>
@@ -150,6 +162,8 @@
 <!-- JavaScripts initializations and stuff -->
 <script src="./assets/js/xenon-custom.js"></script>
 <script src="./assets/js/lozad.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 </body>
 
 </html>
