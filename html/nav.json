@@ -56,6 +56,12 @@
           "desc": "丁香医生提供，需使用微信扫描小程序二维码",
           "image": "http://image.werty.cn/source_blog/20200126013715.png",
           "url": "https://img1.dxycdn.com/2020/0125/993/3392865907226580601-22.jpg"
+        },
+        {
+          "title": "微博免费义诊",
+          "desc": "新浪微博提供的限量免费义诊服务",
+          "image": "http://image.werty.cn/source_blog/20200126023140.jfif",
+          "url": "http://apps.weibo.com/linkcard/2002846022:c81f59f7455d079f672034d22b84c405"
         }
       ]
     },
@@ -106,9 +112,37 @@
       ]
     },
     {
+      "title": "物资救援",
+      "item": [
+        {
+          "title": "官媒发声",
+          "desc": "官方媒体发布的求助报道",
+          "image": "http://image.werty.cn/source_blog/20200127132014.jfif",
+          "url": "https://mp.weixin.qq.com/s/jikceIzJws0ryMVdEdsKAg"
+        },
+        {
+          "title": "2020 援助武汉",
+          "desc": "新冠病毒疫情武汉援助信息网站",
+          "image": "http://image.werty.cn/source_blog/20200127121624.png",
+          "url": "https://wuhan2020.github.io/#"
+        },
+        {
+          "title": "武汉医疗物资供应平台",
+          "desc": "武汉留学大学生志愿者开发的湖北医疗物资供应平台",
+          "image": "http://image.werty.cn/source_blog/20200127132148.png",
+          "url": "https://onwh.51rry.com/#/"
+        }
+      ]
+    },
+    {
       "title": "实时疫情",
       "item": [
         {
+          "title": "官方通报",
+          "desc": "国家卫健委疫情通报",
+          "image": "http://image.werty.cn/source_blog/20200127132700.jfif",
+          "url": "http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml"
+        },        {
           "title": "丁香园实时动态",
           "desc": "丁香园公众号肺炎疫情实时动态",
           "image": "http://image.werty.cn/source_blog/20200126013715.png",
