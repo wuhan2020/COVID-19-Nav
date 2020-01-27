@@ -131,9 +131,39 @@
           "desc": "武汉留学大学生志愿者开发的湖北医疗物资供应平台",
           "image": "http://image.werty.cn/source_blog/20200127132148.png",
           "url": "https://onwh.51rry.com/#/"
+        },
+        {
+          "title": "医院物资求助文字版汇总",
+          "desc": "志愿者手工整理的医院物资求助信息，持续更新！百余家医院物资求助文字版汇总",
+          "image": "http://image.werty.cn/source_blog/20200127160029.jfif",
+          "url": "https://shimo.im/docs/tcXtdyK9cVhP8cRh/read"
         }
       ]
     },
+    {
+      "title": "发热门诊",
+      "item": [
+        {
+          "title": "发热门诊官方查询通道",
+          "desc": "国务院客户端小程序！查发热门诊、医疗救治定点医院，官方应用上线！全国通用！",
+          "image": "http://image.werty.cn/source_blog/20200126124511.png",
+          "url": "http://wjw.wuhan.gov.cn/front/web/showDetail/2020012009078"
+        },
+        {
+          "title": "武汉发热门诊",
+          "desc": "武汉卫健委公布的设置发热门诊医疗机构和定点救治医疗机构名单",
+          "image": "http://image.werty.cn/source_blog/20200127132700.jfif",
+          "url": "http://wjw.wuhan.gov.cn/front/web/showDetail/2020012009078"
+        },
+        {
+          "title": "百度发热门诊地图",
+          "desc": "百度发热门诊地图，搜索时需输入具体城市",
+          "image": "http://image.werty.cn/source_blog/20200126020902.png",
+          "url": "https://map.baidu.com/search/%E5%8F%91%E7%83%AD%E9%97%A8%E8%AF%8A/@11606355.219999999,4669275.880000001,5z?querytype=s&da_src=shareurl&wd=%E5%8F%91%E7%83%AD%E9%97%A8%E8%AF%8A&c=1&src=0&pn=0&sug=0&l=5&b=(9935923.139813736,-1070750.4976680325;18778478.073884808,7190482.344316553)&from=webmap&biz_forward=%7B%22scaler%22:1,%22styles%22:%22pl%22%7D&device_ratio=1"
+        }
+      ]
+    },
+
     {
       "title": "实时疫情",
       "item": [
@@ -216,5 +246,6 @@
         }
       ]
     }
+
   ]
 }
