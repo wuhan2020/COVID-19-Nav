@@ -155,14 +155,14 @@
         // http://lab.isaaclin.cn/nCoV/api/overall
         'https://jlfyn6zwq2.execute-api.cn-northwest-1.amazonaws.com.cn/V1',
         function (res) {
-            if (res.success == true) {
-                $("#confirmed").text(res.results[0].confirmed)
+            if (res.success == true && res.results[0].confirmedCount > 0) {
+                console.log(res.results[0])
+                $("#confirmed").text(res.results[0].confirmedCount)
                 $("#update_time").text(formatDate(res.results[0].updateTime))
-                $("#suspect").text(res.results[0].suspect)
-                $("#death").text(res.results[0].death)
-                $("#cured").text(res.results[0].cured)
+                $("#suspect").text(res.results[0].suspectedCount)
+                $("#death").text(res.results[0].deadCount)
+                $("#cured").text(res.results[0].curedCount)
                 $("#ncov-data").show();
-
             }
         }
     );
