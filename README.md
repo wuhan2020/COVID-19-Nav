@@ -55,4 +55,4 @@ MIT
 
 ## 其他
 
-在疫情结束前，我会尽力添加更多的优质信息入口到疫情导航，如果你有优质的信息来源，或者其他建议，欢迎在issue中反馈，也可联系邮箱[debugicu@163.com](mailto:debugicu@163.com)
+在疫情结束前，我会尽力添加更多的优质信息入口到疫情导航，如果你有优质的信息来源，或者其他建议，欢迎在[issue](https://github.com/wertycn/nCoV/issues)中反馈，也可联系邮箱[debugicu@163.com](mailto:debugicu@163.com)
