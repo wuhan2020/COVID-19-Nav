@@ -49,7 +49,7 @@
 
 ## 许可
 
-MIT 
+MIT 使用请在页脚添加Github地址
 
 本站基于[webstack.cc](https://webstack.cc)开源项目二次开发
 

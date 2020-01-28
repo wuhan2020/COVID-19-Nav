@@ -12,7 +12,7 @@
         },
         {
           "title": "紧急寻人",
-          "desc": "2019-nCoV 新型肺炎确诊患者相同行程查询工具",
+          "desc": "新冠肺炎确诊患者相同行程查询工具 服务不稳定 如果打不开 一会再尝试一下",
           "image": "http://image.werty.cn/source_blog/20200128132657.jfif",
           "url": "http://2019ncov.toolmao.com/?scene=2&clicktime=1580177482&enterid=1580177482&from=timeline&isappinstalled=0"
         },
@@ -200,6 +200,18 @@
           "desc": "国家卫健委疫情通报",
           "image": "http://image.werty.cn/source_blog/20200127132700.jfif",
           "url": "http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml"
+        },
+        {
+          "title": "火神山建造直播",
+          "desc": "现场直播观看",
+          "image": "http://image.werty.cn/source_blog/20200127132700.jfif",
+          "url": " http://t.cn/A6PIYNvD"
+        },
+        {
+          "title": "雷神山建造直播",
+          "desc": "现场直播观看",
+          "image": "http://image.werty.cn/source_blog/20200127132700.jfif",
+          "url": "http://t.cn/A6PIeT14"
         },
         {
           "title": "丁香园实时动态",
