@@ -1,4 +1,4 @@
-#2019-nCoV 疫情信息导航网站
+# 2019-nCoV 疫情信息导航网站
 
 ## 前言
 
@@ -27,6 +27,12 @@
 
 近期将持续更新添加其他模块
 
+开放两个疫情实时数据接口：
+
+http://ncov-api.werty.cn:2020/latest/tx/ (数据源更稳定)
+
+http://ncov-api.werty.cn:2020/latest/dxy/ (源自github开源项目，不是特别稳定)
+
 ## 技术架构
 
 为保证网站的高可用，网站采用了无服务器(Serveless)架构中最基本的一种模式，网站部署于云服务商的对象存储服务上，采用AWS的APIGateway网关代理及lambda函数计算服务提供数据支持,如下图
@@ -49,9 +55,9 @@
 
 ## 许可
 
-MIT 使用请在页脚添加Github地址
+基于MIT许可，同时如果直接使用本项目建站，请在页脚添加Github项目入口或源站[nav.werty.cn](http://nav.werty.cn)地址
 
-本站基于[webstack.cc](https://webstack.cc)开源项目二次开发
+本站基于[webstack.cc](https://webstack.cc)开源项目开发
 
 ## 其他
 
