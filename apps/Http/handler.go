@@ -60,7 +60,7 @@ func handlerNavApp(writer http.ResponseWriter, request *http.Request) {
 // 获取导航信息 pc端
 func handlerNavPc(writer http.ResponseWriter, request *http.Request) {
 	data := Service.GetNavData()
-	log.Print("get origin nav api request")
+	log.Print("request nav api ")
 	MarshalJson(writer, data)
 }
 

@@ -35,8 +35,8 @@ func HttpService() {
 	mux.HandleFunc("/original/dxy/", handlerOrigin)
 	mux.HandleFunc("/original/tx/", handlerTxOrigin)
 	mux.HandleFunc("/together/", handlerTogether)
-	mux.HandleFunc("/nav/pc", handlerNavPc)
-	mux.HandleFunc("/nav/app", handlerNavApp)
+	mux.HandleFunc("/nav/pc/", handlerNavPc)
+	mux.HandleFunc("/nav/app/", handlerNavApp)
 
 	staticFiles := http.FileServer(http.Dir(conf.Conf.String("http::publicDir")))
 	mux.Handle("/", http.StripPrefix("/", staticFiles))

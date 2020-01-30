@@ -8,6 +8,7 @@ import (
 	"nCoV-API/lib/util"
 	"net/url"
 	"strconv"
+	"strings"
 	"time"
 )
 
@@ -138,10 +139,6 @@ func GetTogetherData(params url.Values) []TripsInfoType {
 	if count-start < limit {
 		end = count
 	}
-	log.Println("start", start)
-	log.Println("end", end)
-	log.Println("page", page)
-
 	// 获取总页数
 	return trips[start:end]
 }
@@ -173,7 +170,7 @@ func _searchTripsTrainNumber(trips []TripsInfoType, s string) []TripsInfoType {
 	}
 	var res []TripsInfoType
 	for _, item := range trips {
-		if item.TrainNumber == s {
+		if strings.Contains(item.TrainNumber, s) {
 			res = append(res, item)
 		}
 	}
@@ -187,7 +184,7 @@ func _searchTripsStation(trips []TripsInfoType, s string) []TripsInfoType {
 	}
 	var res []TripsInfoType
 	for _, item := range trips {
-		if item.StartStation == s || item.EndStation == s {
+		if strings.Contains(item.StartStation, s) || strings.Contains(item.EndStation, s)  {
 			res = append(res, item)
 		}
 	}

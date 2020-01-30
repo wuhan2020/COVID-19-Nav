@@ -164,7 +164,6 @@ func GetTxApiData() LatestData {
 	if ok == false {
 		RequestTxApiData()
 	}
-	log.Println(Latest["txApi"])
 	return Latest["txApi"]
 }
 
@@ -247,7 +246,7 @@ func RequestNavData() error {
 		return err
 	}
 
-	if resp.Code != 200 {
+	if resp.Code != 1 {
 		return nil
 	}
 
