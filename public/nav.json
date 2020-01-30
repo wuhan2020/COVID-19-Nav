@@ -2,19 +2,19 @@
   "code": 1,
   "data": [
     {
-      "title": "常用入口",
+      "title": "常用推荐",
       "item": [
+        {
+          "title": "移动端疫情导航 紧急寻人",
+          "desc": "移动端疫情导航2.0,上线病患同行紧急寻人功能",
+          "image": "http://image.werty.cn/source_blog/20200128132657.jfif",
+          "url": "http://nav.werty.cn/h5"
+        },
         {
           "title": "丁香园实时动态",
           "desc": "丁香园公众号肺炎疫情实时动态",
           "image": "http://image.werty.cn/source_blog/20200126013715.png",
           "url": "https://3g.dxy.cn/newh5/view/pneumonia"
-        },
-        {
-          "title": "紧急寻人",
-          "desc": "新冠肺炎确诊患者相同行程查询工具 服务不稳定 如果打不开 一会再尝试一下",
-          "image": "http://image.werty.cn/source_blog/20200128132657.jfif",
-          "url": "http://2019ncov.toolmao.com/?scene=2&clicktime=1580177482&enterid=1580177482&from=timeline&isappinstalled=0"
         },
         {
           "title": "谣言鉴定",
@@ -52,7 +52,7 @@
       "item": [
         {
           "title": "阿里义诊",
-          "desc": "足不出户看病，阿里健康医生义诊  需在手机浏览器中打开或支付宝搜索“问专家” 电脑端打开无效",
+          "desc": "仅支持手机浏览器中打开或支付宝搜索“问专家 电脑端打开将跳转到天猫！",
           "image": "http://image.werty.cn/source_blog/20200126112649.png",
           "url": "https://pages.tmall.com/wow/alijk/act/liugan?wh_biz=tm&spm=a2oua.alipayad.banner.feiyan"
         },
