@@ -1,0 +1,4 @@
+/config/app.conf
+/config/app_prod.conf
+/upload/
+/.idea/
