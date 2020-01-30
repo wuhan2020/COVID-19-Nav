@@ -75,7 +75,7 @@
                     已在<a href="https://github.com/wertycn/nCoV" target="_blank"><strong><u>github</u></strong>开源</a>
                     <br>
                     <span id="busuanzi_container_site_pv">访问次数：<span id="busuanzi_value_site_pv"></span>  访客人数：<span
-                            id="busuanzi_value_site_uv"></span></span>
+                                id="busuanzi_value_site_uv"></span></span>
                     <br>
 
 
@@ -138,21 +138,34 @@
             '</div></div></div></div>'
     }
 
-    $.get(
-        './nav.json',
-        function (res) {
-            if (res.code = 1) {
-                showAllCategory(res.data)
-                init()
-            } else {
-                alert("数据加载失败！")
+    function RequestNavInfo() {
+        $.get(
+            'http://ncov-api.werty.cn:2020/nav/pc/',
+            function (res) {
+                if (res.code = 1) {
+                    showAllCategory(res.data)
+                    init()
+                } else {
+                    $.get(
+                        './nav.json',
+                        function (res) {
+                            if (res.code = 1) {
+                                showAllCategory(res.data)
+                                init()
+                            } else {
+                                alert("导航数据加载失败！")
+                            }
+                        }
+                    );
+                }
             }
-        }
-    );
+        );
+    }
+
+    RequestNavInfo();
 
     function getOriginalLatestData() {
         $.get(
-// http://lab.isaaclin.cn/nCoV/api/overall
             'https://jlfyn6zwq2.execute-api.cn-northwest-1.amazonaws.com.cn/V1',
             function (res) {
                 if (res.success == true && res.results[0].confirmedCount > 0) {
@@ -170,7 +183,6 @@
 
     function getLatestData() {
         $.get(
-// http://lab.isaaclin.cn/nCoV/api/overall
             'http://ncov-api.werty.cn:2020/latest/tx/',
             function (res) {
                 if (res.code == 0 && res.data.count.confirmed > 0) {

@@ -6,7 +6,6 @@ import (
 	"log"
 	"nCoV-API/lib/conf"
 	"nCoV-API/lib/util"
-	"time"
 )
 
 type LatestData struct {
@@ -124,8 +123,22 @@ type TxApiRes struct {
 	} `json:"newslist"`
 }
 
+type NavInfoType struct {
+	Code int `json:"code"`
+	Data []struct {
+		Title string `json:"title"`
+		Item  []struct {
+			Title string `json:"title"`
+			Desc  string `json:"desc"`
+			Image string `json:"image"`
+			URL   string `json:"url"`
+		} `json:"item"`
+	} `json:"data"`
+}
+
 var Latest = make(map[string]LatestData)
 var Original = make(map[string]interface{})
+var Nav = make(map[string]NavInfoType)
 
 // 获取最新数据
 func GetLatestData() LatestData {
@@ -224,17 +237,29 @@ func RequestTxApiData() error {
 	return nil
 }
 
-//刷新缓存
-func CrontabFunc(d time.Duration, hander func() error) {
-	for {
-		log.Println("crontab func runing")
-		hander()
-		time.Sleep(d)
+func RequestNavData() error {
+	url := fmt.Sprintf(conf.Conf.String("api::nav"))
+	ret, err := util.NewRequest("GET", url, map[string]string{}, nil)
+	var resp NavInfoType
+	json.Unmarshal(ret, &resp)
+	if err != nil {
+		log.Println(err)
+		return err
 	}
+
+	if resp.Code != 200 {
+		return nil
+	}
+
+	Nav["latest"] = resp
+	return nil
 }
 
-func Crond() {
-	go CrontabFunc(time.Second * 30 ,RequestLatestData)
-	go CrontabFunc(time.Second * 30 ,RequestTxApiData)
-	go CrontabFunc(time.Second * 300 ,RequestTogetherData)
+// 获取导航信息数据
+func GetNavData() interface{} {
+	_, ok := Nav["latest"]
+	if ok == false {
+		RequestNavData()
+	}
+	return Nav["latest"]
 }

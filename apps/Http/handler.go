@@ -52,12 +52,16 @@ func handlerTogether(writer http.ResponseWriter, request *http.Request) {
 
 // 获取导航信息 移动端
 func handlerNavApp(writer http.ResponseWriter, request *http.Request) {
-
+	data := Service.GetNavData()
+	log.Print("get origin nav api request")
+	MarshalJson(writer, data)
 }
 
 // 获取导航信息 pc端
 func handlerNavPc(writer http.ResponseWriter, request *http.Request) {
-
+	data := Service.GetNavData()
+	log.Print("get origin nav api request")
+	MarshalJson(writer, data)
 }
 
 /**

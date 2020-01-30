@@ -27,19 +27,47 @@
 
 近期将持续更新添加其他模块
 
-开放两个疫情实时数据接口：
-
-http://ncov-api.werty.cn:2020/latest/tx/ (数据源更稳定)
-
-http://ncov-api.werty.cn:2020/latest/dxy/ (源自github开源项目，不是特别稳定)
 
 ## 技术架构
 
-为保证网站的高可用，网站采用了无服务器(Serveless)架构中最基本的一种模式，网站部署于云服务商的对象存储服务上，采用AWS的APIGateway网关代理及lambda函数计算服务提供数据支持,如下图
+### 前端部署
+前端部分仅需静态部署public目录下的静态文件即可，为保证网站的高可用，线上服务采用了无服务器(Serveless)架构中最基本的一种模式，网站部署于云服务商的对象存储服务上，后端接口使用go服务实现高性能代理， 前期使用了AWS的API Gateway及Lambda提供服务支持
 
 ![](http://image.werty.cn/source_blog/20200127200841.png)
 
 相关的架构介绍可以参考这篇文章：[AWS - Serverless 和 lambda](https://blog.51cto.com/beanxyz/2348953)
+
+### 后端服务
+最新版本后端服务采用go语言编写，部署接口时需要安装go语言环境(1.10以上版本)及相关依赖，然后将项目目录放入GOPATH路径下，完成后进入项目目录后执行
+```shell script
+go build 
+# 假设项目目录为nCov-API
+nohup ./nCov-API &
+```
+也可直接使用部署好的开放接口：
+* 实时疫情数据统计
+```
+# 企业维护更稳定
+## 最新总数统计
+http://ncov-api.werty.cn:2020/latest/tx/  
+## 含省份数据 相关资讯
+http://ncov-api.werty.cn:2020/original/tx/  
+
+#源自github开源项目 个人维护 偶尔不稳定
+http://ncov-api.werty.cn:2020/latest/dxy/ 
+http://ncov-api.werty.cn:2020/original/dxy/  
+
+#患者同行查询接口 结果数据分页  分页参数 page 页码， limit 每页条数    
+http://ncov-api.werty.cn:2020/together/  
+
+#疫情信息导航数据接口 
+http://ncov-api.werty.cn:2020/nav.json  
+
+http://
+```
+
+
+### 
 
 ## 线上入口：
 
