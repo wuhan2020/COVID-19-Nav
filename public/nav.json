@@ -5,22 +5,45 @@
       "title": "常用推荐",
       "item": [
         {
-          "title": "移动端疫情导航 紧急寻人",
-          "desc": "移动端疫情导航2.0,上线病患同行紧急寻人功能",
-          "image": "http://image.werty.cn/source_blog/20200128132657.jfif",
+          "title": "移动端疫情导航",
+          "desc": "疫情导航2.0 移动版  上线病患同行紧急寻人功能",
+          "image": "http://image.werty.cn/source_blog/20200131115052.jpg",
           "url": "http://nav.werty.cn/h5"
         },
         {
-          "title": "丁香园实时动态",
-          "desc": "丁香园公众号肺炎疫情实时动态",
-          "image": "http://image.werty.cn/source_blog/20200126013715.png",
-          "url": "https://3g.dxy.cn/newh5/view/pneumonia"
+          "title": "夸克实时疫情",
+          "desc": "夸克浏览器实时疫情动态",
+          "image": "http://image.werty.cn/source_blog/20200125234745.jfif",
+          "url": "https://broccoli.uc.cn/apps/pneumonia/routes/index"
         },
         {
           "title": "谣言鉴定",
           "desc": "腾讯较真辟谣平台",
           "image": "http://image.werty.cn/source_blog/20200126101437.png",
           "url": "https://vp.fact.qq.com/home"
+        }
+      ]
+    },
+    {
+      "title": "信息查询",
+      "item": [
+        {
+          "title": "同行程寻人",
+          "desc": "夸克浏览器出品，患者通行程紧急寻人",
+          "image": "http://image.werty.cn/source_blog/20200128132657.jfif",
+          "url": "https://broccoli.uc.cn/apps/feiyansearch/routes/d_beY5eo"
+        },
+        {
+          "title": "指定接待湖北游客酒店",
+          "desc": "全国指定接待湖北游客酒店信息",
+          "image": "http://image.werty.cn/source_blog/20200131114040.jfif",
+          "url": "https://mp.weixin.qq.com/s/an0e2ThJ1YHUE7T3Vrbsdw"
+        },
+        {
+          "title": "确诊患者同行程查询工具",
+          "desc": "人民日报发布 确诊患者同行程查询工具 ",
+          "image": "http://image.werty.cn/source_blog/20200127132014.jfif",
+          "url": "https://h5.peopleapp.com/txcx/index.html"
         }
       ]
     },

@@ -1,4 +1,7 @@
 /config/app.conf
+/config/app_dev.conf
+/config/crt/
 /config/app_prod.conf
+/config/app_prod_http.conf
 /upload/
 /.idea/
