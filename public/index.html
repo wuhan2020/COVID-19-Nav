@@ -106,6 +106,19 @@
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script type="text/javascript">
 
+
+    function isPhone() {
+        var mobile = navigator.userAgent.match(
+            /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+        );
+        if (mobile) {
+            window.location.href = "http://nav.werty.cn/h5/";
+        }
+    }
+
+    isPhone();
+
+
     $("#ncov-data").hide();
     var href = "";
     var pos = 0;
@@ -139,30 +152,46 @@
     }
 
     function RequestNavInfo() {
+        $.ajax({
+            url: "https://ncov-api.werty.cn:2021/nav/pc/",
+            dataType: "json",
+            success: function (res) {
+                if (res.code != 0 || res.data.length <= 0) {
+                    RequestNavByLocal();
+                } else {
+                    showAllCategory(res.data);
+                    init()
+                }
+
+            },
+            error: function () {
+                RequestNavByLocal();
+            }
+        });
+    }
+
+    // RequestNavByLocal();
+
+    function RequestNavByLocal() {
         $.get(
-            'http://ncov-api.werty.cn:2020/nav/pc/',
+            './nav.json',
             function (res) {
                 if (res.code = 1) {
                     showAllCategory(res.data)
                     init()
                 } else {
-                    $.get(
-                        './nav.json',
-                        function (res) {
-                            if (res.code = 1) {
-                                showAllCategory(res.data)
-                                init()
-                            } else {
-                                alert("导航数据加载失败！")
-                            }
-                        }
-                    );
+                    alert("导航数据加载失败！")
                 }
             }
         );
     }
 
-    RequestNavInfo();
+    //判断是否为本地调试状态  如是 则读取本地文件
+    if (window.location.hostname != "localhost") {
+        RequestNavInfo();
+    } else {
+        RequestNavByLocal();
+    }
 
     function getOriginalLatestData() {
         $.get(
@@ -181,9 +210,9 @@
         );
     }
 
-    function getLatestData() {
+    function RequestLatestData() {
         $.get(
-            'http://ncov-api.werty.cn:2020/latest/tx/',
+            'https://ncov-api.werty.cn:2021/latest/tx/',
             function (res) {
                 if (res.code == 0 && res.data.count.confirmed > 0) {
                     $("#confirmed").text(res.data.count.confirmed)
@@ -198,7 +227,7 @@
     }
 
     // getOriginalLatestData();
-    getLatestData();
+    RequestLatestData();
 
     function formatDate(date) {
         var date = new Date(date);

@@ -44,8 +44,12 @@ go build
 # 假设项目目录为nCov-API
 nohup ./nCov-API &
 ```
-也可直接使用部署好的开放接口：
-* 实时疫情数据统计
+也可直接使用部署好的开放接口： [开放接口文档]()
+> 注意：
+> 原有http接口已升级为https协议 使用go语言直接配置的https服务，实现http与https共存较为复杂，且会接口性能有一定影响，因此不做共存支持。
+> 同时，目前https证书是直接配置到代码中的，实测https对比http本地QPS下降90%以上，因此性能要求较高的最好还是走http
+> 
+> http接口端口为2020 https端口为2021 如需使用https请及时替换  
 ```
 # 企业维护更稳定
 ## 最新总数统计
@@ -61,9 +65,8 @@ http://ncov-api.werty.cn:2020/original/dxy/
 http://ncov-api.werty.cn:2020/together/  
 
 #疫情信息导航数据接口 
-http://ncov-api.werty.cn:2020/nav.json  
+http://ncov-api.werty.cn:2020/nav/app  
 
-http://
 ```
 
 

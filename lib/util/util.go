@@ -54,3 +54,12 @@ func SliceToMap(keys, values []string) map[string]string {
 
 	return mapObj
 }
+
+
+func GetParam(params url.Values, name string, defaultValue interface{}) interface{} {
+	value, ok := params[name]
+	if ok == false {
+		return defaultValue
+	}
+	return value[0]
+}

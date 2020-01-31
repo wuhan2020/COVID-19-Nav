@@ -232,7 +232,7 @@ func RequestTxApiData() error {
 
 	Latest["txApi"] = latestData
 	Original["txApi"] = resp
-
+	UpdateTodaySumCountData()
 	return nil
 }
 
@@ -262,3 +262,4 @@ func GetNavData() interface{} {
 	}
 	return Nav["latest"]
 }
+

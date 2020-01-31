@@ -95,14 +95,14 @@ func GetTogetherData(params url.Values) []TripsInfoType {
 		RequestTogetherData()
 	}
 	// 获取分页参数
-	_page := getParam(params, "page", "1").(string)
+	_page := util.GetParam(params, "page", "1").(string)
 	log.Println("_page:", _page)
 	page, err := strconv.Atoi(_page)
 	if err != nil {
 		page = 1
 	}
 	// 每页长度
-	_limit := getParam(params, "limit", "25").(string)
+	_limit := util.GetParam(params, "limit", "25").(string)
 	limit, err := strconv.Atoi(_limit)
 	if err != nil {
 		limit = 25
@@ -110,15 +110,15 @@ func GetTogetherData(params url.Values) []TripsInfoType {
 
 	var searchParams = make(map[string]string)
 	// 获取类型
-	_type := getParam(params, "type", "").(string)
+	_type := util.GetParam(params, "type", "").(string)
 	log.Print("type:", _type)
 	searchParams["type"] = _type
 	// 获取车次
-	searchParams["train_number"] = getParam(params, "train_number", "").(string)
+	searchParams["train_number"] = util.GetParam(params, "train_number", "").(string)
 	// 获取地区
-	searchParams["station"] = getParam(params, "station", "").(string)
+	searchParams["station"] = util.GetParam(params, "station", "").(string)
 	// date
-	searchParams["date"] = getParam(params, "date", "").(string)
+	searchParams["date"] = util.GetParam(params, "date", "").(string)
 	trips := searchTrips(Trips["temp"], searchParams)
 
 	// 获取数据长度
@@ -126,12 +126,15 @@ func GetTogetherData(params url.Values) []TripsInfoType {
 	log.Println("count", count)
 	// 获取总页数
 	pageCount := int(int(count) / limit)
+	var nilTrips []TripsInfoType
 	if page > pageCount {
 		page = pageCount
+		return nilTrips
 	}
 
 	if page < 1 {
 		page = 1
+		return nilTrips
 	}
 	start := (page - 1) * limit
 
@@ -184,7 +187,7 @@ func _searchTripsStation(trips []TripsInfoType, s string) []TripsInfoType {
 	}
 	var res []TripsInfoType
 	for _, item := range trips {
-		if strings.Contains(item.StartStation, s) || strings.Contains(item.EndStation, s)  {
+		if strings.Contains(item.StartStation, s) || strings.Contains(item.EndStation, s) {
 			res = append(res, item)
 		}
 	}
@@ -207,10 +210,10 @@ func _searchTripsType(trips []TripsInfoType, _type string) []TripsInfoType {
 
 }
 
-func getParam(params url.Values, name string, defaultValue interface{}) interface{} {
-	value, ok := params[name]
-	if ok == false {
-		return defaultValue
-	}
-	return value[0]
-}
+//func util.GetParam(params url.Values, name string, defaultValue interface{}) interface{} {
+//	value, ok := params[name]
+//	if ok == false {
+//		return defaultValue
+//	}
+//	return value[0]
+//}

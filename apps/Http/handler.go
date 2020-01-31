@@ -64,6 +64,20 @@ func handlerNavPc(writer http.ResponseWriter, request *http.Request) {
 	MarshalJson(writer, data)
 }
 
+func handlerDailySum(writer http.ResponseWriter, request *http.Request) {
+	var resp Resp
+	defer MarshalJson(writer, &resp)
+	request.ParseForm()
+	form := request.Form
+	data, err := Service.GetLatestDailySumInfoByCache(form)
+	log.Print("get together api request")
+	if err != nil {
+		resp.Data = err
+		return
+	}
+	resp.Data = data
+}
+
 /**
  * 生成一个md5
  */
