@@ -35,6 +35,29 @@
       ]
     },
     {
+      "title": "信息查询",
+      "item": [
+        {
+          "title": "同行程寻人",
+          "desc": "夸克浏览器出品，患者通行程紧急寻人",
+          "image": "http://image.werty.cn/source_blog/20200128132657.jfif",
+          "url": "https://broccoli.uc.cn/apps/feiyansearch/routes/d_beY5eo"
+        },
+        {
+          "title": "指定接待湖北游客酒店",
+          "desc": "全国指定接待湖北游客酒店信息",
+          "image": "http://image.werty.cn/source_blog/20200131114040.jfif",
+          "url": "https://mp.weixin.qq.com/s/an0e2ThJ1YHUE7T3Vrbsdw"
+        },
+        {
+          "title": "确诊患者同行程查询工具",
+          "desc": "人民日报发布 确诊患者同行程查询工具 ",
+          "image": "http://image.werty.cn/source_blog/20200127132014.jfif",
+          "url": "https://h5.peopleapp.com/txcx/index.html"
+        }
+      ]
+    },
+    {
       "title": "防疫指南",
       "item": [
         {

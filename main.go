@@ -3,10 +3,10 @@ package main
 import (
 	"flag"
 	"log"
+	"nCoV-API/lib/conf"
 	"nCoV-API/apps/Http"
 	"nCoV-API/apps/Model"
 	"nCoV-API/apps/Service"
-	"nCoV-API/lib/conf"
 )
 
 
@@ -19,7 +19,6 @@ func main() {
 	log.Println(ConfigPath)
 	conf.LoadConfig(ConfigPath)
 	Model.Init()
-	//Service.UpdateDailySumCountCache("2020-01-30")
 	Service.Crond()
 	Http.HttpService()
 }

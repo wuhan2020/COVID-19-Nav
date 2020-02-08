@@ -188,7 +188,7 @@
                     已在<a href="https://github.com/wertycn/nCoV" target="_blank"><strong><u>github</u></strong>开源</a>
                     <br>
                     <span id="busuanzi_container_site_pv">访问次数：<span id="busuanzi_value_site_pv"></span>  访客人数：<span
-                                id="busuanzi_value_site_uv"></span></span>
+                            id="busuanzi_value_site_uv"></span></span>
                     <br>
 
 
@@ -284,11 +284,32 @@
             url: "https://ncov-api.werty.cn:2021/nav/pc/",
             dataType: "json",
             success: function (res) {
+<<<<<<< HEAD
                 if (res.code != 0 || res.data.length <= 0) {
                     RequestNavByLocal();
                 } else {
                     showAllCategory(res.data);
                     init()
+=======
+                showAllCategory(res.data)
+                init()
+            },
+            error: function () {
+                RequestNavByLocal();
+            }
+        });
+    }
+
+    function RequestNavByLocal() {
+        $.get(
+            './nav.json',
+            function (res) {
+                if (res.code = 1) {
+                    showAllCategory(res.data)
+                    init()
+                } else {
+                    alert("导航数据加载失败！")
+>>>>>>> 58641a4a2214fb761bdf896881d6e4c82091ccbe
                 }
 
             },
@@ -298,7 +319,16 @@
         });
     }
 
+<<<<<<< HEAD
     // RequestNavByLocal();
+=======
+    //判断是否为本地调试状态  如是 则读取本地文件
+    if (window.location.hostname != "localhost") {
+        RequestNavInfo();
+    } else {
+        RequestNavByLocal();
+    }
+>>>>>>> 58641a4a2214fb761bdf896881d6e4c82091ccbe
 
     function RequestNavByLocal() {
         $.get(
@@ -314,6 +344,7 @@
         );
     }
 
+<<<<<<< HEAD
     let latestApi
     //判断是否为本地调试状态  如是 则读取本地文件
     if (window.location.hostname == "localhost") {
@@ -345,6 +376,11 @@
         ]
         $.get(
             latestApi,
+=======
+    function RequestLatestData() {
+        $.get(
+            'https://ncov-api.werty.cn:2021/latest/tx/',
+>>>>>>> 58641a4a2214fb761bdf896881d6e4c82091ccbe
             function (res) {
                 if (res.code == 0 && res.data.count.confirmed > 0) {
                     for (let i in ids) {
@@ -363,6 +399,9 @@
             }
         );
     }
+
+    // getOriginalLatestData();
+    RequestLatestData();
 
     function formatDate(date) {
         var date = new Date(date);

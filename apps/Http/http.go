@@ -65,9 +65,6 @@ func HttpService() {
 	log.Println("web服务启动成功")
 }
 
-
-
-
 /**
  * 对象转JSON并响应
  */
