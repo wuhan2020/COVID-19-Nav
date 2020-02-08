@@ -10,10 +10,16 @@ import (
 
 type LatestData struct {
 	Count struct {
-		Confirmed int `json:"confirmed"`
-		Suspected int `json:"suspected"`
-		Cure      int `json:"cure"`
-		Death     int `json:"death"`
+		Confirmed     int `json:"confirmed"`
+		Suspected     int `json:"suspected"`
+		Cure          int `json:"cure"`
+		Death         int `json:"death"`
+		Serious       int `json:"serious"`
+		SuspectedIncr int `json:"suspected_incr"`
+		ConfirmedIncr int `json:"confirmed_incr"`
+		CuredIncr     int `json:"cured_incr"`
+		DeadIncr      int `json:"dead_incr"`
+		SeriousIncr   int `json:"serious_incr"`
 	} `json:"count"`
 	Info struct {
 		// 疫情名称
@@ -66,17 +72,23 @@ type TxApiRes struct {
 	Msg      string `json:"msg"`
 	Newslist []struct {
 		News []struct {
-			ID           int    `json:"id"`
-			PubDate      int64  `json:"pubDate"`
-			PubDateStr   string `json:"pubDateStr"`
-			Title        string `json:"title"`
-			Summary      string `json:"summary"`
-			InfoSource   string `json:"infoSource"`
-			SourceURL    string `json:"sourceUrl"`
-			ProvinceID   string `json:"provinceId"`
-			ProvinceName string `json:"provinceName,omitempty"`
-			CreateTime   int64  `json:"createTime"`
-			ModifyTime   int64  `json:"modifyTime"`
+			ID               int    `json:"id"`
+			PubDate          int64  `json:"pubDate"`
+			PubDateStr       string `json:"pubDateStr"`
+			Title            string `json:"title"`
+			Summary          string `json:"summary"`
+			InfoSource       string `json:"infoSource"`
+			SourceURL        string `json:"sourceUrl"`
+			ProvinceID       string `json:"provinceId"`
+			ProvinceName     string `json:"provinceName"`
+			CreateTime       int64  `json:"createTime"`
+			ModifyTime       int64  `json:"modifyTime"`
+			EntryWay         int    `json:"entryWay"`
+			AdoptType        int    `json:"adoptType"`
+			InfoType         int    `json:"infoType"`
+			DataInfoState    int    `json:"dataInfoState"`
+			DataInfoOperator string `json:"dataInfoOperator"`
+			DataInfoTime     int64  `json:"dataInfoTime"`
 		} `json:"news"`
 		Case []struct {
 			ID                int    `json:"id"`
@@ -84,6 +96,7 @@ type TxApiRes struct {
 			ModifyTime        int64  `json:"modifyTime"`
 			Tags              string `json:"tags"`
 			CountryType       int    `json:"countryType"`
+			Continents        string `json:"continents"`
 			ProvinceID        string `json:"provinceId"`
 			ProvinceName      string `json:"provinceName"`
 			ProvinceShortName string `json:"provinceShortName"`
@@ -95,50 +108,70 @@ type TxApiRes struct {
 			Comment           string `json:"comment"`
 			Sort              int    `json:"sort"`
 			Operator          string `json:"operator"`
+			LocationID        int    `json:"locationId"`
 		} `json:"case"`
 		Desc struct {
-			ID             int    `json:"id"`
-			CreateTime     int64  `json:"createTime"`
-			ModifyTime     int64  `json:"modifyTime"`
-			InfectSource   string `json:"infectSource"`
-			PassWay        string `json:"passWay"`
-			ImgURL         string `json:"imgUrl"`
-			DailyPic       string `json:"dailyPic"`
-			Summary        string `json:"summary"`
-			Deleted        bool   `json:"deleted"`
-			CountRemark    string `json:"countRemark"`
-			ConfirmedCount int    `json:"confirmedCount"`
-			SuspectedCount int    `json:"suspectedCount"`
-			CuredCount     int    `json:"curedCount"`
-			DeadCount      int    `json:"deadCount"`
-			Virus          string `json:"virus"`
-			Remark1        string `json:"remark1"`
-			Remark2        string `json:"remark2"`
-			Remark3        string `json:"remark3"`
-			Remark4        string `json:"remark4"`
-			Remark5        string `json:"remark5"`
-			GeneralRemark  string `json:"generalRemark"`
-			AbroadRemark   string `json:"abroadRemark"`
+			ID             int           `json:"id"`
+			CreateTime     int64         `json:"createTime"`
+			ModifyTime     int64         `json:"modifyTime"`
+			InfectSource   string        `json:"infectSource"`
+			PassWay        string        `json:"passWay"`
+			ImgURL         string        `json:"imgUrl"`
+			DailyPic       string        `json:"dailyPic"`
+			DailyPics      []string      `json:"dailyPics"`
+			Summary        string        `json:"summary"`
+			Deleted        bool          `json:"deleted"`
+			CountRemark    string        `json:"countRemark"`
+			ConfirmedCount int           `json:"confirmedCount"`
+			SuspectedCount int           `json:"suspectedCount"`
+			CuredCount     int           `json:"curedCount"`
+			DeadCount      int           `json:"deadCount"`
+			SeriousCount   int           `json:"seriousCount"`
+			SuspectedIncr  int           `json:"suspectedIncr"`
+			ConfirmedIncr  int           `json:"confirmedIncr"`
+			CuredIncr      int           `json:"curedIncr"`
+			DeadIncr       int           `json:"deadIncr"`
+			SeriousIncr    int           `json:"seriousIncr"`
+			Virus          string        `json:"virus"`
+			Remark1        string        `json:"remark1"`
+			Remark2        string        `json:"remark2"`
+			Remark3        string        `json:"remark3"`
+			Remark4        string        `json:"remark4"`
+			Remark5        string        `json:"remark5"`
+			Note1          string        `json:"note1"`
+			Note2          string        `json:"note2"`
+			Note3          string        `json:"note3"`
+			GeneralRemark  string        `json:"generalRemark"`
+			AbroadRemark   string        `json:"abroadRemark"`
+			Marquee        []interface{} `json:"marquee"`
 		} `json:"desc"`
 	} `json:"newslist"`
+}
+type NavItemType struct {
+	Title string `json:"title"`
+	Desc  string `json:"desc"`
+	Image string `json:"image"`
+	URL   string `json:"url"`
+}
+
+type RecommendationApiType struct {
+	Code int           `json:"code"`
+	Data []NavItemType `json:"data"`
 }
 
 type NavInfoType struct {
 	Code int `json:"code"`
 	Data []struct {
-		Title string `json:"title"`
-		Item  []struct {
-			Title string `json:"title"`
-			Desc  string `json:"desc"`
-			Image string `json:"image"`
-			URL   string `json:"url"`
-		} `json:"item"`
+		Title string        `json:"title"`
+		Item  []NavItemType `json:"item"`
 	} `json:"data"`
 }
 
+// 全局缓存map
 var Latest = make(map[string]LatestData)
 var Original = make(map[string]interface{})
 var Nav = make(map[string]NavInfoType)
+var Recommendation = make(map[string]RecommendationApiType)
 
 // 获取最新数据
 func GetLatestData() LatestData {
@@ -223,16 +256,23 @@ func RequestTxApiData() error {
 	latestData.Count.Cure = resp.Newslist[0].Desc.CuredCount
 	latestData.Count.Suspected = resp.Newslist[0].Desc.SuspectedCount
 	latestData.Count.Death = resp.Newslist[0].Desc.DeadCount
+	latestData.Count.Serious = resp.Newslist[0].Desc.SeriousCount
+	latestData.Count.SeriousIncr = resp.Newslist[0].Desc.SeriousIncr
+	latestData.Count.SuspectedIncr = resp.Newslist[0].Desc.SuspectedIncr
+	latestData.Count.ConfirmedIncr = resp.Newslist[0].Desc.ConfirmedIncr
+	latestData.Count.CuredIncr = resp.Newslist[0].Desc.CuredIncr
+	latestData.Count.DeadIncr = resp.Newslist[0].Desc.DeadIncr
 	latestData.Info.DataSource = resp.Newslist[0].Desc.GeneralRemark
 	latestData.Info.IncubationPeriod = resp.Newslist[0].Desc.Remark2
 	latestData.Info.VulnerableGroup = resp.Newslist[0].Desc.Remark1
-	latestData.Info.InfectionSource = resp.Newslist[0].Desc.InfectSource
-	latestData.Info.Name = resp.Newslist[0].Desc.Virus
+	latestData.Info.InfectionSource = resp.Newslist[0].Desc.Note2
+	latestData.Info.Transmission = resp.Newslist[0].Desc.Note3
+	latestData.Info.Name = resp.Newslist[0].Desc.Note1
 	latestData.UpdateTime = resp.Newslist[0].Desc.ModifyTime
 
 	Latest["txApi"] = latestData
 	Original["txApi"] = resp
-	UpdateTodaySumCountData()
+	//UpdateTodaySumCountData()
 	return nil
 }
 
@@ -263,3 +303,27 @@ func GetNavData() interface{} {
 	return Nav["latest"]
 }
 
+func GetNavRecommendationAppData() interface{} {
+	_, ok := Recommendation["app"]
+	if ok == false {
+		RequestRecommendationData()
+	}
+	return Recommendation["app"]
+}
+
+//读取推荐信息数据到内存
+func RequestRecommendationData() error {
+	url := fmt.Sprintf(conf.Conf.String("api::recommendation"))
+	ret, err := util.NewRequest("GET", url, map[string]string{}, nil)
+	var resp RecommendationApiType
+	json.Unmarshal(ret, &resp)
+	if err != nil {
+		log.Println(err)
+		return err
+	}
+	if resp.Code != 1 {
+		return nil
+	}
+	Recommendation["app"] = resp
+	return nil
+}

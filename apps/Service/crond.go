@@ -15,8 +15,9 @@ func CrontabFunc(d time.Duration, handler func() error, desc string) {
 }
 
 func Crond() {
-	go CrontabFunc(time.Second*30, RequestLatestData, " 刷新开源数据接口缓存")
+	//go CrontabFunc(time.Second*30, RequestLatestData, " 刷新开源数据接口缓存")
 	go CrontabFunc(time.Second*30, RequestTxApiData, " 刷新天行数据接口缓存")
 	go CrontabFunc(time.Second*300, RequestTogetherData, " 刷新患者同行数据缓存")
 	go CrontabFunc(time.Second*30, RequestNavData, " 刷新导航信息缓存")
+	go CrontabFunc(time.Second*30, RequestRecommendationData, " 刷新推荐信息信息缓存")
 }

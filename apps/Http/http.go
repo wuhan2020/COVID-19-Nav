@@ -37,6 +37,7 @@ func HttpService() {
 	mux.HandleFunc("/together/", handlerTogether)
 	mux.HandleFunc("/nav/pc/", handlerNavPc)
 	mux.HandleFunc("/nav/app/", handlerNavApp)
+	mux.HandleFunc("/nav/recommendation", handlerNavRecommendation)
 	mux.HandleFunc("/daily/sum/", handlerDailySum)
 
 	staticFiles := http.FileServer(http.Dir(conf.Conf.String("http::publicDir")))
@@ -63,6 +64,8 @@ func HttpService() {
 	}
 	log.Println("web服务启动成功")
 }
+
+
 
 
 /**

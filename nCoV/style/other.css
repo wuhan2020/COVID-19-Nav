@@ -1,0 +1,32 @@
+/* 向右浮动 */
+	.pr {
+		float: right;
+	}
+
+	/* 小图标 */
+	.mini-icon {
+		width: 98.2upx;
+		height: 98.2upx;
+	}
+
+	/* 卡片通用样式 */
+	.cu-card {
+		margin: 30upx;
+		border-radius: 20rpx;
+		box-shadow: #333333;
+		background: #fff;
+	}
+
+	/* 特殊文本 */
+	.text-other {
+		line-height: 1.8;
+		text-indent: 2em;
+		font-size: 28upx;
+		font-weight: 500;
+		color: rgb(51, 51, 51);
+	}
+
+	/* 特殊图片 */
+	.image-other {
+		border-radius: 10upx;
+	}
