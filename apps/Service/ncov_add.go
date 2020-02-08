@@ -15,9 +15,11 @@ type DailySumBson struct {
 	AddConfirmed int    `json:"add_confirmed" bson:"add_confirmed"`
 	AddSuspect   int    `json:"add_suspect" bson:"add_suspect"`
 	AddDeath     int    `json:"add_death" bson:"add_death"`
+	AddCure      int    `json:"add_cure" bson:"add_cure"`
 	SumConfirmed int    `json:"sum_confirmed" bson:"sum_confirmed"`
 	SumSuspect   int    `json:"sum_suspect" bson:"sum_suspect"`
 	SumDeath     int    `json:"sum_death" bson:"sum_death"`
+	SumCure      int    `json:"sum_cure" bson:"sum_cure"`
 	CountDate    string `json:"count_date" bson:"count_date"`
 	UpdateTime   string `json:"update_time" bson:"update_time"`
 }
@@ -77,10 +79,13 @@ func UpdateTodaySumCountData() (DailySumBson, error) {
 	today.AddConfirmed = realTimeData.Count.Confirmed - lastData.SumConfirmed
 	today.AddDeath = realTimeData.Count.Death - lastData.SumDeath
 	today.AddSuspect = realTimeData.Count.Suspected - lastData.SumSuspect
+	today.AddCure = 0
 	today.SumConfirmed = realTimeData.Count.Confirmed
 	today.SumDeath = realTimeData.Count.Death
+	today.SumCure = realTimeData.Count.Cure
 	today.SumSuspect = realTimeData.Count.Suspected
 	today.CountDate = todayDate
+	//today.UpdateTime =
 	//today.UpdateTime = time.Now().Format("20060102")
 
 	//today.UpdateTime =

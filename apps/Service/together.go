@@ -4,52 +4,52 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"math"
 	"nCoV-API/lib/conf"
 	"nCoV-API/lib/util"
 	"net/url"
 	"strconv"
 	"strings"
-	"time"
 )
 
 type TogetherApiRes struct {
 	Code int    `json:"code"`
 	Msg  string `json:"msg"`
 	Data []struct {
-		ID        int       `json:"id"`
-		TDate     string    `json:"t_date"`
-		TStart    time.Time `json:"t_start"`
-		TEnd      time.Time `json:"t_end"`
-		TType     int       `json:"t_type"`
-		TNo       string    `json:"t_no"`
-		TMemo     string    `json:"t_memo"`
-		TNoSub    string    `json:"t_no_sub"`
-		TPosStart string    `json:"t_pos_start"`
-		TPosEnd   string    `json:"t_pos_end"`
-		Source    string    `json:"source"`
-		Who       string    `json:"who"`
-		Verified  int       `json:"verified"`
-		CreatedAt time.Time `json:"created_at"`
-		UpdatedAt time.Time `json:"updated_at"`
+		ID        int    `json:"id"`
+		TDate     string `json:"t_date"`
+		TStart    string `json:"t_start"`
+		TEnd      string `json:"t_end"`
+		TType     int    `json:"t_type"`
+		TNo       string `json:"t_no"`
+		TMemo     string `json:"t_memo"`
+		TNoSub    string `json:"t_no_sub"`
+		TPosStart string `json:"t_pos_start"`
+		TPosEnd   string `json:"t_pos_end"`
+		Source    string `json:"source"`
+		Who       string `json:"who"`
+		Verified  int    `json:"verified"`
+		CreatedAt string `json:"created_at"`
+		UpdatedAt string `json:"updated_at"`
 	} `json:"data"`
 }
 
 type TripsInfoType struct {
-	ID                int       `json:"id"`
-	Date              string    `json:"date"`
-	StartTime         time.Time `json:"start"`
-	EndTime           time.Time `json:"end"`
-	Type              int       `json:"type"`
-	TrainNumber       string    `json:"train_number"`
-	Remark            string    `json:"remark"`
-	CompartmentNumber string    `json:"crriage_number"`
-	StartStation      string    `json:"start_station"`
-	EndStation        string    `json:"end_station"`
-	Source            string    `json:"source"`
-	PublishMedia      string    `json:"publish_media"`
-	Verified          int       `json:"verified"`
-	CreateTime        time.Time `json:"create_time"`
-	UpdateTime        time.Time `json:"create_time"`
+	ID                int    `json:"id"`
+	Date              string `json:"date"`
+	StartTime         string `json:"start"`
+	EndTime           string `json:"end"`
+	Type              int    `json:"type"`
+	TrainNumber       string `json:"train_number"`
+	Remark            string `json:"remark"`
+	CompartmentNumber string `json:"crriage_number"`
+	StartStation      string `json:"start_station"`
+	EndStation        string `json:"end_station"`
+	Source            string `json:"source"`
+	PublishMedia      string `json:"publish_media"`
+	Verified          int    `json:"verified"`
+	CreateTime        string `json:"create_time"`
+	UpdateTime        string `json:"create_time"`
 }
 
 var Trips = make(map[string][]TripsInfoType)
@@ -57,14 +57,20 @@ var Trips = make(map[string][]TripsInfoType)
 func RequestTogetherData() error {
 	url := fmt.Sprintf(conf.Conf.String("api::togetherApi"))
 	ret, err := util.NewRequest("GET", url, map[string]string{}, nil)
+	log.Println()
 	var resp TogetherApiRes
+
 	json.Unmarshal(ret, &resp)
+
+	var _resp interface{}
+	json.Unmarshal(ret, &_resp)
 	if err != nil {
 		return err
 	}
 	if resp.Code != 0 {
 		return fmt.Errorf("接口请求失败")
 	}
+
 	var together []TripsInfoType
 	for _, e := range resp.Data { //e是值拷贝
 		var info TripsInfoType
@@ -90,8 +96,9 @@ func RequestTogetherData() error {
 }
 
 func GetTogetherData(params url.Values) []TripsInfoType {
-	_, ok := Trips["temp"]
-	if ok == false {
+	v, ok := Trips["temp"]
+	if ok == false || v == nil {
+		log.Println("请求缓存数据")
 		RequestTogetherData()
 	}
 	// 获取分页参数
@@ -120,15 +127,18 @@ func GetTogetherData(params url.Values) []TripsInfoType {
 	// date
 	searchParams["date"] = util.GetParam(params, "date", "").(string)
 	trips := searchTrips(Trips["temp"], searchParams)
-
+	RequestTogetherData()
 	// 获取数据长度
 	count := len(trips)
-	log.Println("count", count)
+	log.Println("trips:", Trips["temp"])
+	//log.Println("count", count)
 	// 获取总页数
-	pageCount := int(int(count) / limit)
+	ceil := math.Ceil(util.IntDivCeil(count, limit))
+	pageCount := int(ceil)
 	var nilTrips []TripsInfoType
 	if page > pageCount {
-		page = pageCount
+		//page = pageCount
+		log.Println("page > pageCount", page, pageCount, trips)
 		return nilTrips
 	}
 

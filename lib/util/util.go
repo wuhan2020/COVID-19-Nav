@@ -1,14 +1,14 @@
 package util;
 
 import (
+	"crypto/md5"
+	"encoding/hex"
 	"io/ioutil"
 	"net"
 	"net/http"
 	"net/url"
 	"strings"
 	"time"
-	"crypto/md5"
-	"encoding/hex"
 )
 
 var c = &http.Client{
@@ -45,7 +45,6 @@ func GetMd5(str []byte) string {
 	return hex.EncodeToString(h.Sum(nil))
 }
 
-
 func SliceToMap(keys, values []string) map[string]string {
 	mapObj := map[string]string{}
 	for index := range keys {
@@ -55,11 +54,14 @@ func SliceToMap(keys, values []string) map[string]string {
 	return mapObj
 }
 
-
 func GetParam(params url.Values, name string, defaultValue interface{}) interface{} {
 	value, ok := params[name]
 	if ok == false {
 		return defaultValue
 	}
 	return value[0]
+}
+
+func IntDivCeil(num1 int, num2 int) float64 {
+	return float64(num1) / float64(num2)
 }

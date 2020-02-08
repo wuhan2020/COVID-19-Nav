@@ -2,39 +2,6 @@
   "code": 1,
   "data": [
     {
-      "title": "常用推荐",
-      "item": [
-        {
-          "title": "患者同程紧急寻人",
-          "desc": "病患同行查询功能",
-          "image": "http://image.werty.cn/source_blog/20200131115052.jpg",
-          "url": "http://nav.werty.cn/h5/travel",
-          "device": "all"
-        },
-        {
-          "title": "疫情可视化",
-          "desc": "国家疾控中心疫情可视化系统",
-          "image": "http://image.werty.cn/source_blog/20200126174559.png",
-          "url": "http://2019ncov.chinacdc.cn/nCoV",
-          "device": "all"
-        },
-        {
-          "title": "夸克实时疫情",
-          "desc": "夸克浏览器实时疫情动态",
-          "image": "http://image.werty.cn/source_blog/20200125234745.jfif",
-          "url": "https://broccoli.uc.cn/apps/pneumonia/routes/index",
-          "device": "all"
-        },
-        {
-          "title": "谣言鉴定",
-          "desc": "腾讯较真辟谣平台",
-          "image": "http://image.werty.cn/source_blog/20200126101437.png",
-          "url": "https://vp.fact.qq.com/home",
-          "device": "all"
-        }
-      ]
-    },
-    {
       "title": "信息查询",
       "item": [
         {
@@ -56,6 +23,13 @@
           "desc": "人民日报发布 确诊患者同行程查询工具 ",
           "image": "http://image.werty.cn/source_blog/20200127132014.jfif",
           "url": "https://h5.peopleapp.com/txcx/index.html",
+          "device": "all"
+        },
+        {
+          "title": "确诊小区查询",
+          "desc": "患者小区查询工具 ",
+          "image": "http://image.werty.cn/source_blog/20200208172749.png",
+          "url": "https://pages.uc.cn/r/feiyan-map/FyMapPageMap",
           "device": "all"
         }
       ]
@@ -129,124 +103,6 @@
           "desc": "新浪微博提供的限量免费义诊服务",
           "image": "http://image.werty.cn/source_blog/20200126023140.jfif",
           "url": "http://apps.weibo.com/linkcard/2002846022:c81f59f7455d079f672034d22b84c405",
-          "device": "all"
-        }
-      ]
-    },
-    {
-      "title": "谣言鉴定",
-      "item": [
-        {
-          "title": "腾讯新闻较真平台",
-          "desc": "新型冠状病毒肺炎最新辟谣科普实时更新中",
-          "image": "http://image.werty.cn/source_blog/20200126101437.png",
-          "url": "https://vp.fact.qq.com/home",
-          "device": "all"
-        },
-        {
-          "title": "百度谣言鉴定",
-          "desc": "关于新型肺炎的这些谣言不能信",
-          "image": "http://image.werty.cn/source_blog/20200126020755.jfif",
-          "url": "https://dwz.cn/lM8JJeZu?u=6a6bf6dc8edecfd7",
-          "device": "all"
-        },
-        {
-          "title": "新浪辟谣信息播报",
-          "desc": "武汉新型肺炎辟谣信息播报",
-          "image": "http://image.werty.cn/source_blog/20200126023140.jfif",
-          "url": "https://news.sina.cn/zt_d/yypd2020",
-          "device": "all"
-        }
-      ]
-    },
-    {
-      "title": "举报通道",
-      "item": [
-        {
-          "title": "国务院互联网+督察平台",
-          "desc": "征集新型冠状病毒感染的肺炎疫情防控工作问题线索及意见建议",
-          "image": "http://image.werty.cn/source_blog/20200126124511.png",
-          "url": "http://www.gov.cn/xinwen/2020-01/24/content_5472009.htm",
-          "device": "all"
-        },
-        {
-          "title": "湖北市监局投诉方式",
-          "desc": "湖北市场监管部门集中公布疫情防控投诉举报方式",
-          "image": "http://image.werty.cn/source_blog/20200126123805.jfif",
-          "url": "https://baijiahao.baidu.com/s?id=1656625537550941208&wfr=spider&for=pc",
-          "device": "all"
-        },
-        {
-          "title": "12315",
-          "desc": "全国12315网络举报平台网址",
-          "image": "http://image.werty.cn/source_blog/20200126125405.png",
-          "url": "http://www.12315.cn/",
-          "device": "all"
-        }
-      ]
-    },
-    {
-      "title": "物资救援",
-      "item": [
-        {
-          "title": "官媒发声",
-          "desc": "官方媒体发布的求助报道",
-          "image": "http://image.werty.cn/source_blog/20200127132014.jfif",
-          "url": "https://mp.weixin.qq.com/s/jikceIzJws0ryMVdEdsKAg",
-          "device": "all"
-        },
-        {
-          "title": "爱心捐赠入口",
-          "desc": "武汉加油 爱心捐赠 中国银联旗下云闪付提供的武汉红十字会捐款通道，需使用微信或云闪付打开链接：",
-          "image": "http://image.werty.cn/source_blog/20200127213938.jfif",
-          "url": "https://article.unionpay.com/userview/#/actList/detail?id=1451&isShare=true",
-          "device": "all"
-        },
-        {
-          "title": "2020 援助武汉",
-          "desc": "github开源项目，新冠病毒疫情武汉援助信息网站",
-          "image": "http://image.werty.cn/source_blog/20200127121624.png",
-          "url": "https://wuhan2020.github.io/#",
-          "device": "all"
-        },
-        {
-          "title": "武汉医疗物资供应平台",
-          "desc": "武汉留学大学生志愿者开发的湖北医疗物资供应平台",
-          "image": "http://image.werty.cn/source_blog/20200127132148.png",
-          "url": "https://onwh.51rry.com/#/",
-          "device": "all"
-        },
-        {
-          "title": "医院物资求助文字版汇总",
-          "desc": "志愿者手工整理的医院物资求助信息，持续更新！百余家医院物资求助文字版汇总",
-          "image": "http://image.werty.cn/source_blog/20200127160029.jfif",
-          "url": "https://shimo.im/docs/tcXtdyK9cVhP8cRh/read",
-          "device": "all"
-        }
-      ]
-    },
-    {
-      "title": "发热门诊",
-      "item": [
-        {
-          "title": "发热门诊官方查询通道",
-          "desc": "国务院客户端小程序！查发热门诊、医疗救治定点医院，官方应用上线！全国通用！",
-          "image": "http://image.werty.cn/source_blog/20200126124511.png",
-          "url": "http://wjw.wuhan.gov.cn/front/web/showDetail/2020012009078",
-          "device": "all"
-        },
-        {
-          "title": "武汉发热门诊",
-          "desc": "武汉卫健委公布的设置发热门诊医疗机构和定点救治医疗机构名单",
-          "image": "http://image.werty.cn/source_blog/20200127132700.jfif",
-          "url": "http://wjw.wuhan.gov.cn/front/web/showDetail/2020012009078",
-          "device": "all"
-        },
-        {
-          "title": "百度发热门诊地图",
-          "desc": "百度发热门诊地图，搜索时需输入具体城市",
-          "image": "http://image.werty.cn/source_blog/20200126020902.png",
-          "url": "https://map.baidu.com/search/%E5%8F%91%E7%83%AD%E9%97%A8%E8%AF%8A/@11606355.219999999,4669275.880000001,5z?querytype=s&da_src=shareurl&wd=%E5%8F%91%E7%83%AD%E9%97%A8%E8%AF%8A&c=1&src=0&pn=0&sug=0&l=5&b=(9935923.139813736,-1070750.4976680325;18778478.073884808,7190482.344316553)&from=webmap&biz_forward=%7B%22scaler%22:1,%22styles%22:%22pl%22%7D&device_ratio=1",
           "device": "all"
         }
       ]
@@ -343,6 +199,145 @@
           "desc": "第一财经疫情动态",
           "image": "http://image.werty.cn/source_blog/20200126023409.jfif",
           "url": "https://m.yicai.com/news/100476965.html",
+          "device": "all"
+        }
+      ]
+    },
+    {
+      "title": "谣言鉴定",
+      "item": [
+        {
+          "title": "腾讯新闻较真平台",
+          "desc": "新型冠状病毒肺炎最新辟谣科普实时更新中",
+          "image": "http://image.werty.cn/source_blog/20200126101437.png",
+          "url": "https://vp.fact.qq.com/home",
+          "device": "all"
+        },
+        {
+          "title": "百度谣言鉴定",
+          "desc": "关于新型肺炎的这些谣言不能信",
+          "image": "http://image.werty.cn/source_blog/20200126020755.jfif",
+          "url": "https://dwz.cn/lM8JJeZu?u=6a6bf6dc8edecfd7",
+          "device": "all"
+        },
+        {
+          "title": "新浪辟谣信息播报",
+          "desc": "武汉新型肺炎辟谣信息播报",
+          "image": "http://image.werty.cn/source_blog/20200126023140.jfif",
+          "url": "https://news.sina.cn/zt_d/yypd2020",
+          "device": "all"
+        }
+      ]
+    },
+    {
+      "title": "举报监督",
+      "item": [
+        {
+          "title": "国务院互联网+督察平台",
+          "desc": "征集新型冠状病毒感染的肺炎疫情防控工作问题线索及意见建议",
+          "image": "http://image.werty.cn/source_blog/20200126124511.png",
+          "url": "http://www.gov.cn/xinwen/2020-01/24/content_5472009.htm",
+          "device": "all"
+        },
+        {
+          "title": "湖北市监局投诉方式",
+          "desc": "湖北市场监管部门集中公布疫情防控投诉举报方式",
+          "image": "http://image.werty.cn/source_blog/20200126123805.jfif",
+          "url": "https://baijiahao.baidu.com/s?id=1656625537550941208&wfr=spider&for=pc",
+          "device": "all"
+        },
+        {
+          "title": "12315",
+          "desc": "全国12315网络举报平台网址",
+          "image": "http://image.werty.cn/source_blog/20200126125405.png",
+          "url": "http://www.12315.cn/",
+          "device": "all"
+        },
+        {
+          "title": "",
+          "desc": "全国12315网络举报平台网址",
+          "image": "http://image.werty.cn/source_blog/20200126125405.png",
+          "url": "http://www.12315.cn/",
+          "device": "all"
+        },
+        {
+          "title": "红十字会云监工",
+          "desc": "一起来给红十字会监工吧",
+          "image": "",
+          "url": "https://weileizeng.github.io/red-cross/",
+          "device": "all"
+        }
+      ]
+    },
+    {
+      "title": "物资救援",
+      "item": [
+        {
+          "title": "官媒发声",
+          "desc": "官方媒体发布的求助报道",
+          "image": "http://image.werty.cn/source_blog/20200127132014.jfif",
+          "url": "https://mp.weixin.qq.com/s/jikceIzJws0ryMVdEdsKAg",
+          "device": "all"
+        },
+        {
+          "title": "爱心捐赠入口",
+          "desc": "武汉加油 爱心捐赠 中国银联旗下云闪付提供的武汉红十字会捐款通道，需使用微信或云闪付打开链接：",
+          "image": "http://image.werty.cn/source_blog/20200127213938.jfif",
+          "url": "https://article.unionpay.com/userview/#/actList/detail?id=1451&isShare=true",
+          "device": "all"
+        },
+        {
+          "title": "2020 援助武汉",
+          "desc": "github开源项目，新冠病毒疫情武汉援助信息网站",
+          "image": "http://image.werty.cn/source_blog/20200127121624.png",
+          "url": "https://wuhan2020.github.io/#",
+          "device": "all"
+        },
+        {
+          "title": "武汉医疗物资供应平台",
+          "desc": "武汉留学大学生志愿者开发的湖北医疗物资供应平台",
+          "image": "http://image.werty.cn/source_blog/20200127132148.png",
+          "url": "https://onwh.51rry.com/#/",
+          "device": "all"
+        },
+        {
+          "title": "医院物资求助文字版汇总",
+          "desc": "志愿者手工整理的医院物资求助信息，持续更新！百余家医院物资求助文字版汇总",
+          "image": "http://image.werty.cn/source_blog/20200127160029.jfif",
+          "url": "https://shimo.im/docs/tcXtdyK9cVhP8cRh/read",
+          "device": "all"
+        }
+      ]
+    },
+    {
+      "title": "发热门诊",
+      "item": [
+        {
+          "title": "发热门诊官方查询通道",
+          "desc": "国务院客户端小程序！查发热门诊、医疗救治定点医院，官方应用上线！全国通用！",
+          "image": "http://image.werty.cn/source_blog/20200126124511.png",
+          "url": "http://wjw.wuhan.gov.cn/front/web/showDetail/2020012009078",
+          "device": "all"
+        },
+        {
+          "title": "武汉发热门诊",
+          "desc": "武汉卫健委公布的设置发热门诊医疗机构和定点救治医疗机构名单",
+          "image": "http://image.werty.cn/source_blog/20200127132700.jfif",
+          "url": "http://wjw.wuhan.gov.cn/front/web/showDetail/2020012009078",
+          "device": "all"
+        },
+        {
+          "title": "百度发热门诊地图",
+          "desc": "百度发热门诊地图，搜索时需输入具体城市",
+          "image": "http://image.werty.cn/source_blog/20200126020902.png",
+          "url": "https://map.baidu.com/search/%E5%8F%91%E7%83%AD%E9%97%A8%E8%AF%8A/@11606355.219999999,4669275.880000001,5z?querytype=s&da_src=shareurl&wd=%E5%8F%91%E7%83%AD%E9%97%A8%E8%AF%8A&c=1&src=0&pn=0&sug=0&l=5&b=(9935923.139813736,-1070750.4976680325;18778478.073884808,7190482.344316553)&from=webmap&biz_forward=%7B%22scaler%22:1,%22styles%22:%22pl%22%7D&device_ratio=1",
+          "device": "all"
+        },
+        {
+          "title": "发热门诊",
+          "desc": "丁香园统计发热门诊",
+          "image": "http://image.werty.cn/source_blog/20200208175439.png",
+          "url": "https://assets.dxycdn.com/gitrepo/tod-assets/output/default/pneumonia/index.htm",
           "device": "all"
         }
       ]

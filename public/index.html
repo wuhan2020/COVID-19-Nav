@@ -37,6 +37,55 @@
             font-size: 20px;
             font-weight: bold;
         }
+
+        .flex-box {
+            display: flex;
+        }
+
+        .flex-box li {
+            display: flex;
+        }
+
+        .flex-item {
+            /*border: 1px solid #0b5e4e;*/
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 18px;
+            flood-color: black;
+            /*background-color: #8a8c8d;*/
+        }
+
+        .data-count {
+            font-weight: bold;
+            font-size: 20px;
+            color: #008d7d;
+        }
+
+        .data-incr {
+            /*font-weight: bold;*/
+            font-size: 14px;
+            /*color: #008d7d;*/
+        }
+
+        .confirmed {
+            color: rgb(247, 76, 49)
+        }
+
+        .suspect {
+            color: rgb(162, 90, 78)
+        }
+
+        .serious {
+            color: rgb(247, 130, 7)
+        }
+
+        .death {
+            color: rgb(93, 112, 146)
+        }
+
+        .cured {
+            color: rgb(40, 183, 163)
+        }
     </style>
 </head>
 
@@ -45,14 +94,78 @@
     <h2>2019-nCoV 疫情信息导航</h2>
     <h3>武汉加油！中国加油！</h3>
 </div>
-<div id="ncov-data" style="text-align: center;margin: 15px 15px 5px">
-    <p style="font-size: 18px;color: black">
-        截至 <span class="focus-data" id="update_time"></span> <br>
-        确诊 <span class="focus-data" id="confirmed"></span> 例，
-        疑似 <span class="focus-data" id="suspect"></span> 例 <br>
-        治愈 <span class="focus-data" id="cured"></span> 例，
-        死亡 <span class="focus-data" id="death"></span> 例
-    </p>
+<!--style="text-align: center;margin: 15px 15px 5px"-->
+<!--<div class="flex">-->
+
+<!--    <ul class="count___3GCdh flex-box">-->
+<!--        <li>-->
+<!--            <p>较昨日<em style="color: rgb(247, 76, 49);">+3294</em></p>-->
+<!--            <strong style="color: rgb(247, 76, 49);">20530</strong>-->
+<!--            <span>确诊</span>-->
+<!--        </li>-->
+<!--        <li><p>较昨日<em style="color: rgb(247, 130, 7);">+5072</em></p><strong-->
+<!--                style="color: rgb(247, 130, 7);">23214</strong><span>疑似</span></li>-->
+<!--        <li><p>较昨日<em style="color: rgb(162, 90, 78);">+492</em></p><strong-->
+<!--                style="color: rgb(162, 90, 78);">2788</strong><span>重症</span></li>-->
+<!--        <li><p>较昨日<em style="color: rgb(93, 112, 146);">+65</em></p><strong-->
+<!--                style="color: rgb(93, 112, 146);">426</strong><span>死亡</span></li>-->
+<!--        <li><p>较昨日<em style="color: rgb(40, 183, 163);">+243</em></p><strong-->
+<!--                style="color: rgb(40, 183, 163);">718</strong><span>治愈</span></li>-->
+<!--    </ul>-->
+<!--</div>-->
+<div>
+    <div id="ncov-data" class="row" style="text-align: center;">
+        <p style="font-size: 18px;color: black">
+            <!--        截至 <span class="focus-data" id="update_time"></span> <br>-->
+            <!--        确诊 <span class="focus-data" id="confirmed"></span> 例，-->
+            <!--        疑似 <span class="focus-data" id="suspect"></span> 例 <br>-->
+            <!--        治愈 <span class="focus-data" id="cured"></span> 例，-->
+            <!--        死亡 <span class="focus-data" id="death"></span> 例-->
+        </p>
+        <div class="col-md-2 col-xs-0">
+
+        </div>
+        <div class="row col-md-8 ">
+            <div class="col-md-1 col-xs-1">
+                <br>
+            </div>
+            <div class="col-md-2 col-xs-2 flex-item">
+                <p>确诊</p>
+                <span id="confirmed" class="data-count confirmed"></span>
+                <p class="data-incr">较昨日<br><span id="confirmed_incr" class="confirmed"></span></p>
+            </div>
+            <div class="col-md-2 col-xs-2 flex-item">
+                <p>疑似</p>
+                <span id="suspect" class="data-count suspect"></span>
+                <p class="data-incr">较昨日<br><span id="suspected_incr" class="suspect"></span></p>
+            </div>
+            <div class="col-md-2 col-xs-2 flex-item">
+                <p>重症</p>
+                <span id="serious" class="data-count serious"></span>
+                <p class="data-incr">较昨日<br><span id="serious_incr" class="serious"></span></p>
+            </div>
+            <div class="col-md-2 col-xs-2 flex-item">
+                <p>死亡</p>
+                <span id="death" class="data-count death"></span>
+                <p class="data-incr">较昨日<br><span id="dead_incr" class="death"></span></p>
+            </div>
+            <div class="col-md-2 col-xs-2 flex-item">
+                <p>治愈</p>
+                <span id="cured" class="data-count cured"></span>
+
+                <p class="data-incr">较昨日<br><span id="cured_incr" class="cured"></span></p>
+
+            </div>
+
+
+            <div class="col-md-1 col-xs-1">
+                <br>
+            </div>
+        </div>
+        <div class="col-md-2 col-xs-0">
+
+        </div>
+    </div>
 </div>
 <!-- skin-white -->
 <div class="page-container">
@@ -111,12 +224,27 @@
         var mobile = navigator.userAgent.match(
             /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
         );
+
         if (mobile) {
             window.location.href = "http://nav.werty.cn/h5/";
         }
     }
 
     isPhone();
+
+    function getYesterdayDate() {
+        let today = new Date();
+        today.setTime(today.getTime() - 24 * 60 * 60 * 1000);
+        let month = today.getMonth() + 1;
+        if (month < 10) {
+            month = "0" + month
+        }
+        let day = today.getDate();
+        if (day < 10) {
+            day = "0" + day
+        }
+        return today.getFullYear() + "-" + month + "-" + day;
+    }
 
 
     $("#ncov-data").hide();
@@ -186,48 +314,55 @@
         );
     }
 
+    let latestApi
     //判断是否为本地调试状态  如是 则读取本地文件
-    if (window.location.hostname != "localhost") {
-        RequestNavInfo();
-    } else {
+    if (window.location.hostname == "localhost") {
         RequestNavByLocal();
+        latestApi = 'http://localhost:2021/latest/tx/';
+    } else {
+        RequestNavInfo();
+        latestApi = 'https://ncov-api.werty.cn:2021/latest/tx/';
     }
 
-    function getOriginalLatestData() {
-        $.get(
-            'https://jlfyn6zwq2.execute-api.cn-northwest-1.amazonaws.com.cn/V1',
-            function (res) {
-                if (res.success == true && res.results[0].confirmedCount > 0) {
-                    console.log(res.results[0])
-                    $("#confirmed").text(res.results[0].confirmedCount)
-                    $("#update_time").text(formatDate(res.results[0].updateTime))
-                    $("#suspect").text(res.results[0].suspectedCount)
-                    $("#death").text(res.results[0].deadCount)
-                    $("#cured").text(res.results[0].curedCount)
-                    $("#ncov-data").show();
-                }
-            }
-        );
-    }
+    RequestLatestData(latestApi);
 
-    function RequestLatestData() {
+
+    function RequestLatestData(latestApi) {
+        let ids = [
+            "update_time",
+            "confirmed",
+            "suspect",
+            "death",
+            "cured",
+            "serious",
+        ]
+        let incr_ids = [
+            "confirmed_incr",
+            "suspected_incr",
+            "dead_incr",
+            "cured_incr",
+            "serious_incr"
+        ]
         $.get(
-            'https://ncov-api.werty.cn:2021/latest/tx/',
+            latestApi,
             function (res) {
                 if (res.code == 0 && res.data.count.confirmed > 0) {
-                    $("#confirmed").text(res.data.count.confirmed)
-                    $("#update_time").text(formatDate(res.data.update_time))
-                    $("#suspect").text(res.data.count.suspected)
-                    $("#death").text(res.data.count.death)
-                    $("#cured").text(res.data.count.cure)
+                    for (let i in ids) {
+                        $("#" + ids[i]).text(res.data.count[ids[i]])
+                    }
+                    for (let i in incr_ids) {
+                        let value = res.data.count[incr_ids[i]];
+                        if (value > 0) {
+                            $("#" + incr_ids[i]).text(" +" + value)
+                        } else {
+                            $("#" + incr_ids[i]).text(value)
+                        }
+                    }
                     $("#ncov-data").show();
                 }
             }
         );
     }
-
-    // getOriginalLatestData();
-    RequestLatestData();
 
     function formatDate(date) {
         var date = new Date(date);
