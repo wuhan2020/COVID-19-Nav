@@ -82,7 +82,7 @@ http://ncov-api.werty.cn:2020/nav/app
 
 [2020 援助武汉 Github项目地址](https://github.com/wuhan2020/wuhan2020)
 
-[2019新型冠状病毒疫情实时爬虫 Github项目地址](https://github.com/BlankerL/DXY-Covid-19-Crawler) 首页实时疫情数据基于该项目提供接口，使用APIGateway代理实现跨域及缓存功能
+[2019新型冠状病毒疫情实时爬虫 Github项目地址](https://github.com/BlankerL/DXY-2019-nCoV-Crawler) 首页实时疫情数据基于该项目提供接口，使用APIGateway代理实现跨域及缓存功能
 
 ## 许可
 
