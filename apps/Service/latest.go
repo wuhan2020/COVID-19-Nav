@@ -10,17 +10,20 @@ import (
 
 type LatestData struct {
 	Count struct {
-		Confirmed     int `json:"confirmed"`
-		Suspected     int `json:"suspected"`
-		Cure          int `json:"cure"`
-		Death         int `json:"death"`
-		Serious       int `json:"serious"`
-		SuspectedIncr int `json:"suspected_incr"`
-		ConfirmedIncr int `json:"confirmed_incr"`
-		CuredIncr     int `json:"cured_incr"`
-		DeadIncr      int `json:"dead_incr"`
-		SeriousIncr   int `json:"serious_incr"`
+		CurrentConfirmed int `json:"current_confirmed"`
+		CurrentIncr      int `json:"current_incr"`
+		Confirmed        int `json:"confirmed"`
+		Suspected        int `json:"suspected"`
+		Cure             int `json:"cure"`
+		Death            int `json:"death"`
+		Serious          int `json:"serious"`
+		SuspectedIncr    int `json:"suspected_incr"`
+		ConfirmedIncr    int `json:"confirmed_incr"`
+		CuredIncr        int `json:"cured_incr"`
+		DeadIncr         int `json:"dead_incr"`
+		SeriousIncr      int `json:"serious_incr"`
 	} `json:"count"`
+
 	Info struct {
 		// 疫情名称
 		Name string `json:"name"`
@@ -37,6 +40,8 @@ type LatestData struct {
 	} `json:"info"`
 	// 数据更新时间
 	UpdateTime int64 `json:"update_time"`
+	// 海外统计
+	ForeignStatistics ForeignStatisticsType `json:"foreignStatistics"`
 }
 
 type NcovApiRes struct {
@@ -67,6 +72,18 @@ type NcovApiRes struct {
 	Success bool `json:"success"`
 }
 
+type ForeignStatisticsType struct {
+	CurrentConfirmedCount int `json:"currentConfirmedCount"`
+	ConfirmedCount        int `json:"confirmedCount"`
+	SuspectedCount        int `json:"suspectedCount"`
+	CuredCount            int `json:"curedCount"`
+	DeadCount             int `json:"deadCount"`
+	SuspectedIncr         int `json:"suspectedIncr"`
+	CurrentConfirmedIncr  int `json:"currentConfirmedIncr"`
+	ConfirmedIncr         int `json:"confirmedIncr"`
+	CuredIncr             int `json:"curedIncr"`
+	DeadIncr              int `json:"deadIncr"`
+}
 type TxApiRes struct {
 	Code     int    `json:"code"`
 	Msg      string `json:"msg"`
@@ -80,7 +97,7 @@ type TxApiRes struct {
 			InfoSource       string `json:"infoSource"`
 			SourceURL        string `json:"sourceUrl"`
 			ProvinceID       string `json:"provinceId"`
-			ProvinceName     string `json:"provinceName"`
+			ProvinceName     string `json:"provinceName,omitempty"`
 			CreateTime       int64  `json:"createTime"`
 			ModifyTime       int64  `json:"modifyTime"`
 			EntryWay         int    `json:"entryWay"`
@@ -90,63 +107,43 @@ type TxApiRes struct {
 			DataInfoOperator string `json:"dataInfoOperator"`
 			DataInfoTime     int64  `json:"dataInfoTime"`
 		} `json:"news"`
-		Case []struct {
-			ID                int    `json:"id"`
-			CreateTime        int64  `json:"createTime"`
-			ModifyTime        int64  `json:"modifyTime"`
-			Tags              string `json:"tags"`
-			CountryType       int    `json:"countryType"`
-			Continents        string `json:"continents"`
-			ProvinceID        string `json:"provinceId"`
-			ProvinceName      string `json:"provinceName"`
-			ProvinceShortName string `json:"provinceShortName"`
-			CityName          string `json:"cityName"`
-			ConfirmedCount    int    `json:"confirmedCount"`
-			SuspectedCount    int    `json:"suspectedCount"`
-			CuredCount        int    `json:"curedCount"`
-			DeadCount         int    `json:"deadCount"`
-			Comment           string `json:"comment"`
-			Sort              int    `json:"sort"`
-			Operator          string `json:"operator"`
-			LocationID        int    `json:"locationId"`
-		} `json:"case"`
 		Desc struct {
-			ID             int           `json:"id"`
-			CreateTime     int64         `json:"createTime"`
-			ModifyTime     int64         `json:"modifyTime"`
-			InfectSource   string        `json:"infectSource"`
-			PassWay        string        `json:"passWay"`
-			ImgURL         string        `json:"imgUrl"`
-			DailyPic       string        `json:"dailyPic"`
-			DailyPics      []string      `json:"dailyPics"`
-			Summary        string        `json:"summary"`
-			Deleted        bool          `json:"deleted"`
-			CountRemark    string        `json:"countRemark"`
-			ConfirmedCount int           `json:"confirmedCount"`
-			SuspectedCount int           `json:"suspectedCount"`
-			CuredCount     int           `json:"curedCount"`
-			DeadCount      int           `json:"deadCount"`
-			SeriousCount   int           `json:"seriousCount"`
-			SuspectedIncr  int           `json:"suspectedIncr"`
-			ConfirmedIncr  int           `json:"confirmedIncr"`
-			CuredIncr      int           `json:"curedIncr"`
-			DeadIncr       int           `json:"deadIncr"`
-			SeriousIncr    int           `json:"seriousIncr"`
-			Virus          string        `json:"virus"`
-			Remark1        string        `json:"remark1"`
-			Remark2        string        `json:"remark2"`
-			Remark3        string        `json:"remark3"`
-			Remark4        string        `json:"remark4"`
-			Remark5        string        `json:"remark5"`
-			Note1          string        `json:"note1"`
-			Note2          string        `json:"note2"`
-			Note3          string        `json:"note3"`
-			GeneralRemark  string        `json:"generalRemark"`
-			AbroadRemark   string        `json:"abroadRemark"`
-			Marquee        []interface{} `json:"marquee"`
+			ID                    int                   `json:"id"`
+			CreateTime            int64                 `json:"createTime"`
+			ModifyTime            int64                 `json:"modifyTime"`
+			InfectSource          string                `json:"infectSource"`
+			PassWay               string                `json:"passWay"`
+			Summary               string                `json:"summary"`
+			Deleted               bool                  `json:"deleted"`
+			CountRemark           string                `json:"countRemark"`
+			CurrentConfirmedCount int                   `json:"currentConfirmedCount"`
+			ConfirmedCount        int                   `json:"confirmedCount"`
+			SuspectedCount        int                   `json:"suspectedCount"`
+			CuredCount            int                   `json:"curedCount"`
+			DeadCount             int                   `json:"deadCount"`
+			SeriousCount          int                   `json:"seriousCount"`
+			SuspectedIncr         int                   `json:"suspectedIncr"`
+			CurrentConfirmedIncr  int                   `json:"currentConfirmedIncr"`
+			ConfirmedIncr         int                   `json:"confirmedIncr"`
+			CuredIncr             int                   `json:"curedIncr"`
+			DeadIncr              int                   `json:"deadIncr"`
+			SeriousIncr           int                   `json:"seriousIncr"`
+			Virus                 string                `json:"virus"`
+			Remark1               string                `json:"remark1"`
+			Remark2               string                `json:"remark2"`
+			Remark3               string                `json:"remark3"`
+			Remark4               string                `json:"remark4"`
+			Remark5               string                `json:"remark5"`
+			Note1                 string                `json:"note1"`
+			Note2                 string                `json:"note2"`
+			Note3                 string                `json:"note3"`
+			GeneralRemark         string                `json:"generalRemark"`
+			AbroadRemark          string                `json:"abroadRemark"`
+			ForeignStatistics     ForeignStatisticsType `json:"foreignStatistics"`
 		} `json:"desc"`
 	} `json:"newslist"`
 }
+
 type NavItemType struct {
 	Title string `json:"title"`
 	Desc  string `json:"desc"`
@@ -253,6 +250,8 @@ func RequestTxApiData() error {
 	var latestData LatestData
 	//make()
 	latestData.Count.Confirmed = resp.Newslist[0].Desc.ConfirmedCount
+	latestData.Count.CurrentConfirmed = resp.Newslist[0].Desc.CurrentConfirmedCount
+	latestData.Count.CurrentIncr = resp.Newslist[0].Desc.CurrentConfirmedIncr
 	latestData.Count.Cure = resp.Newslist[0].Desc.CuredCount
 	latestData.Count.Suspected = resp.Newslist[0].Desc.SuspectedCount
 	latestData.Count.Death = resp.Newslist[0].Desc.DeadCount
@@ -269,6 +268,7 @@ func RequestTxApiData() error {
 	latestData.Info.Transmission = resp.Newslist[0].Desc.Note3
 	latestData.Info.Name = resp.Newslist[0].Desc.Note1
 	latestData.UpdateTime = resp.Newslist[0].Desc.ModifyTime
+	latestData.ForeignStatistics = resp.Newslist[0].Desc.ForeignStatistics
 
 	Latest["txApi"] = latestData
 	Original["txApi"] = resp

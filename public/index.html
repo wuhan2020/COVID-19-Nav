@@ -94,25 +94,6 @@
     <h2>Covid-19 疫情信息导航</h2>
     <h3>武汉加油！中国加油！</h3>
 </div>
-<!--style="text-align: center;margin: 15px 15px 5px"-->
-<!--<div class="flex">-->
-
-<!--    <ul class="count___3GCdh flex-box">-->
-<!--        <li>-->
-<!--            <p>较昨日<em style="color: rgb(247, 76, 49);">+3294</em></p>-->
-<!--            <strong style="color: rgb(247, 76, 49);">20530</strong>-->
-<!--            <span>确诊</span>-->
-<!--        </li>-->
-<!--        <li><p>较昨日<em style="color: rgb(247, 130, 7);">+5072</em></p><strong-->
-<!--                style="color: rgb(247, 130, 7);">23214</strong><span>疑似</span></li>-->
-<!--        <li><p>较昨日<em style="color: rgb(162, 90, 78);">+492</em></p><strong-->
-<!--                style="color: rgb(162, 90, 78);">2788</strong><span>重症</span></li>-->
-<!--        <li><p>较昨日<em style="color: rgb(93, 112, 146);">+65</em></p><strong-->
-<!--                style="color: rgb(93, 112, 146);">426</strong><span>死亡</span></li>-->
-<!--        <li><p>较昨日<em style="color: rgb(40, 183, 163);">+243</em></p><strong-->
-<!--                style="color: rgb(40, 183, 163);">718</strong><span>治愈</span></li>-->
-<!--    </ul>-->
-<!--</div>-->
 <div>
     <div id="ncov-data" class="row" style="text-align: center;">
         <p style="font-size: 18px;color: black">
@@ -136,7 +117,7 @@
             </div>
             <div class="col-md-2 col-xs-2 flex-item">
                 <p>疑似</p>
-                <span id="suspect" class="data-count suspect"></span>
+                <span id="suspected" class="data-count suspect"></span>
                 <p class="data-incr">较昨日<br><span id="suspected_incr" class="suspect"></span></p>
             </div>
             <div class="col-md-2 col-xs-2 flex-item">
@@ -151,7 +132,7 @@
             </div>
             <div class="col-md-2 col-xs-2 flex-item">
                 <p>治愈</p>
-                <span id="cured" class="data-count cured"></span>
+                <span id="cure" class="data-count cured"></span>
 
                 <p class="data-incr">较昨日<br><span id="cured_incr" class="cured"></span></p>
 
@@ -181,17 +162,16 @@
                 <div class="footer-text">
                     免责申明：本站所列信息均来自互联网，仅供参考，本站力求但不保证信息的完全准确，如有错漏请以官方媒体披露为准，用户个人对服务的使用承担风险，本站不作任何类型担保！
                     <br>
-                    &copy; 2019-2020
+                    &copy; 2019-2020 <a href="https://wuhan2020.gitee.io/zh-cn/">wuhan2020</a>
                     <a href="http://nav.werty.cn"><strong>疫情信息导航</strong></a> by
                     <a href="http://werty.cn" target="_blank"><strong>werty.cn</strong></a>
-                    &nbsp;
-                    已在<a href="https://github.com/wertycn/nCoV" target="_blank"><strong><u>github</u></strong>开源</a>
+                    本项目已在<a href="https://github.com/wertycn/nCoV" target="_blank"><strong><u>github</u></strong>开源</a>
+                    <!--<a href=""></a>-->
+                    <br>  友情链接：&nbsp;<a href="https://m.kuaidi100.com/" target="_blank">快递查询</a>
                     <br>
                     <span id="busuanzi_container_site_pv">访问次数：<span id="busuanzi_value_site_pv"></span>  访客人数：<span
                             id="busuanzi_value_site_uv"></span></span>
                     <br>
-
-
                 </div>
                 <div class="footer-text">
                 </div>
@@ -284,13 +264,6 @@
             url: "https://ncov-api.werty.cn:2021/nav/pc/",
             dataType: "json",
             success: function (res) {
-<<<<<<< HEAD
-                if (res.code != 0 || res.data.length <= 0) {
-                    RequestNavByLocal();
-                } else {
-                    showAllCategory(res.data);
-                    init()
-=======
                 showAllCategory(res.data)
                 init()
             },
@@ -309,42 +282,12 @@
                     init()
                 } else {
                     alert("导航数据加载失败！")
->>>>>>> 58641a4a2214fb761bdf896881d6e4c82091ccbe
                 }
 
-            },
-            error: function () {
-                RequestNavByLocal();
             }
-        });
+            );
     }
 
-<<<<<<< HEAD
-    // RequestNavByLocal();
-=======
-    //判断是否为本地调试状态  如是 则读取本地文件
-    if (window.location.hostname != "localhost") {
-        RequestNavInfo();
-    } else {
-        RequestNavByLocal();
-    }
->>>>>>> 58641a4a2214fb761bdf896881d6e4c82091ccbe
-
-    function RequestNavByLocal() {
-        $.get(
-            './nav.json',
-            function (res) {
-                if (res.code = 1) {
-                    showAllCategory(res.data)
-                    init()
-                } else {
-                    alert("导航数据加载失败！")
-                }
-            }
-        );
-    }
-
-<<<<<<< HEAD
     let latestApi
     //判断是否为本地调试状态  如是 则读取本地文件
     if (window.location.hostname == "localhost") {
@@ -362,9 +305,9 @@
         let ids = [
             "update_time",
             "confirmed",
-            "suspect",
+            "suspected",
             "death",
-            "cured",
+            "cure",
             "serious",
         ]
         let incr_ids = [
@@ -376,11 +319,6 @@
         ]
         $.get(
             latestApi,
-=======
-    function RequestLatestData() {
-        $.get(
-            'https://ncov-api.werty.cn:2021/latest/tx/',
->>>>>>> 58641a4a2214fb761bdf896881d6e4c82091ccbe
             function (res) {
                 if (res.code == 0 && res.data.count.confirmed > 0) {
                     for (let i in ids) {

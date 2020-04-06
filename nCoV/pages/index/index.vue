@@ -129,7 +129,7 @@
 							<view class="text-content text-xs margin-top-xs">
 								本站所列信息均来自互联网，仅供参考，本站力求但不保证信息的完全准确，如有错漏请以官方媒体披露为准，用户个人对服务的使用承担风险，本站不作任何类型担保！
 								<view class="text-xs">
-									By: 后台&数据-祥子 <text class="text-blue" @click="tz('http://werty.cn/')">werty.cn </text> 前端&设计-李生<text class="text-blue"
+									By: 产品&后端 祥子 <text class="text-blue" @click="tz('http://werty.cn/')">werty.cn </text> 前端&设计-李生<text class="text-blue"
 									 @click="tz('https://github.com/admin8756')">GitHub </text>
 								</view>
 								<view class="text-xs" @click="tz('https://github.com/wertycn/nCoV')">
