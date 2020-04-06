@@ -1,4 +1,4 @@
-# 2019-nCoV 疫情信息导航网站
+# Covid-19 疫情信息导航网站
 
 ## 前言
 
@@ -40,7 +40,7 @@
 ### 后端服务
 最新版本后端服务采用go语言编写，部署接口时需要安装go语言环境(1.10以上版本)及相关依赖，然后将项目目录放入GOPATH路径下，完成后进入项目目录后执行
 ```shell script
-go build 
+go build
 # 假设项目目录为nCov-API
 nohup ./nCov-API &
 ```
@@ -48,29 +48,29 @@ nohup ./nCov-API &
 > 注意：
 > 原有http接口已升级为https协议 使用go语言直接配置的https服务，实现http与https共存较为复杂，且会接口性能有一定影响，因此不做共存支持。
 > 同时，目前https证书是直接配置到代码中的，实测https对比http本地QPS下降90%以上，因此性能要求较高的最好还是走http
-> 
-> http接口端口为2020 https端口为2021 如需使用https请及时替换  
+>
+> http接口端口为2020 https端口为2021 如需使用https请及时替换
 ```
 # 企业维护更稳定
 ## 最新总数统计
-http://ncov-api.werty.cn:2020/latest/tx/  
+http://ncov-api.werty.cn:2020/latest/tx/
 ## 含省份数据 相关资讯
-http://ncov-api.werty.cn:2020/original/tx/  
+http://ncov-api.werty.cn:2020/original/tx/
 
 #源自github开源项目 个人维护 偶尔不稳定
-http://ncov-api.werty.cn:2020/latest/dxy/ 
-http://ncov-api.werty.cn:2020/original/dxy/  
+http://ncov-api.werty.cn:2020/latest/dxy/
+http://ncov-api.werty.cn:2020/original/dxy/
 
-#患者同行查询接口 结果数据分页  分页参数 page 页码， limit 每页条数    
-http://ncov-api.werty.cn:2020/together/  
+#患者同行查询接口 结果数据分页  分页参数 page 页码， limit 每页条数
+http://ncov-api.werty.cn:2020/together/
 
-#疫情信息导航数据接口 
-http://ncov-api.werty.cn:2020/nav/app  
+#疫情信息导航数据接口
+http://ncov-api.werty.cn:2020/nav/app
 
 ```
 
 
-### 
+###
 
 ## 线上入口：
 
